@@ -10,7 +10,7 @@ public abstract class Cell implements Observable {
 
     private final int x;
     private final int y;
-    private boolean isVisible = false;
+    private boolean isSelected = false;
 
     List<Observer> observerList = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public abstract class Cell implements Observable {
     }
 
     public void selected() {
-        isVisible = true;
+        isSelected = true;
 
         updateObservers();
     }
@@ -37,8 +37,8 @@ public abstract class Cell implements Observable {
         return y;
     }
 
-    public boolean isVisible() {
-        return isVisible;
+    public boolean isSelected() {
+        return isSelected;
     }
 
     // Observable

@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/EmptyCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/MinedCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/NumberedCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/Observable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/util/BoardFromMinesBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/util/RandomBoardGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Mess of an idea. &#10;To be deleted and redone.">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/MineSeeperGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/MineSweeperBoardImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterfaceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Board.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/util/BoardFromMinesBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/util/RandomBoardGenerator.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +28,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -43,17 +44,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="net.oscarlove.minesweeper.model.interfaces" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MineSweeperBoardInterfaceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MineSweeper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.oscarlove.minesweeper.model.interfaces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.interfaces" />
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.interfaces.MineSweeperBoardInterfaceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MineSweeperBoardInterfaceTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,6 +100,7 @@
       <workItem from="1662989763267" duration="783000" />
       <workItem from="1664035464124" duration="2067000" />
       <workItem from="1664518399463" duration="1972000" />
+      <workItem from="1664563313673" duration="2886000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1662986402370</created>
@@ -74,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662986402370</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Mess of an idea. &#10;To be deleted and redone.">
+      <created>1664563357244</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664563357244</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Mess of an idea. &#10;To be deleted and redone." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mess of an idea. &#10;To be deleted and redone." />
   </component>
 </project>
