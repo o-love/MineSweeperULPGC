@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Mess of an idea. &#10;To be deleted and redone.">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/MineSeeperGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/MineSweeperBoardImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterface.java" afterDir="false" />
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="New structure">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardGenerator.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterfaceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/util/BoardFromMinesBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/util/RandomBoardGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -44,20 +36,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -100,7 +92,9 @@
       <workItem from="1662989763267" duration="783000" />
       <workItem from="1664035464124" duration="2067000" />
       <workItem from="1664518399463" duration="1972000" />
-      <workItem from="1664563313673" duration="2886000" />
+      <workItem from="1664563313673" duration="3563000" />
+      <workItem from="1664958986470" duration="1798000" />
+      <workItem from="1665331462304" duration="1128000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1662986402370</created>
@@ -116,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664563357244</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="New structure">
+      <created>1664566279189</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664566279189</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Mess of an idea. &#10;To be deleted and redone." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mess of an idea. &#10;To be deleted and redone." />
+    <MESSAGE value="New structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="New structure" />
   </component>
 </project>
