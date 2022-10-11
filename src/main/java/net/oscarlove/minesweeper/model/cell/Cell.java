@@ -2,19 +2,26 @@ package net.oscarlove.minesweeper.model.cell;
 
 import net.oscarlove.minesweeper.model.interfaces.Observable;
 import net.oscarlove.minesweeper.model.interfaces.Observer;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.oscarlove.minesweeper.model.util.ObservableImpl;
 
 public abstract class Cell implements Observable {
 
     private final int x;
     private final int y;
+    private final ObservableImpl observableManager = new ObservableImpl();
+
     private boolean isSelected = false;
 
-    List<Observer> observerList = new ArrayList<>();
+    private boolean flag = false;
 
-    protected Cell(int x, int y) {
+    /**
+     * @implSpec Both booleans are initially set to {@code false}.
+     * @param x Row cell is located at.
+     * @param y Column cell is located at.
+     *
+     * @throws IllegalArgumentException When {@code x} or {@code y} is negative.
+     */
+    public Cell(int x, int y) {
         if (x < 0 || y < 0) {
             throw new IllegalArgumentException("x and y must be positive numbers");
         }
@@ -23,7 +30,7 @@ public abstract class Cell implements Observable {
         this.y = y;
     }
 
-    public void selected() {
+    public void setAsSelected() {
         isSelected = true;
 
         updateObservers();
@@ -41,20 +48,29 @@ public abstract class Cell implements Observable {
         return isSelected;
     }
 
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+
+        updateObservers();
+    }
+
+    public boolean getFlag() {
+        return flag;
+    }
     // Observable
 
 
     @Override
     public void addObserver(Observer observer) {
-        observerList.add(observer);
+        observableManager.addObserver(observer);
     }
 
     @Override
     public void removeObserver(Observer observer) {
-        observerList.remove(observer);
+        observableManager.removeObserver(observer);
     }
 
     protected void updateObservers() {
-        observerList.forEach(Observer::update);
+        observableManager.updateObservers();
     }
 }
