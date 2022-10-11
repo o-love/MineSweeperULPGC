@@ -6,52 +6,36 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CellTest {
     private static class CellImplTesting extends Cell {
-        CellImplTesting(int x, int y) {
-            super(x, y);
-        }
     }
 
     Cell testCell;
 
     @BeforeEach
     void setup() {
-        testCell = new CellImplTesting(3, 3);
+        testCell = new CellImplTesting();
     }
 
     @Test
     void basicTestDefaultCreation(){
-        assertEquals(testCell.getX(), 3);
-        assertEquals(testCell.getY(), 3);
-        assertFalse(testCell.getFlag());
-        assertFalse(testCell.isSelected());
+        assertEquals(testCell.getState(), Cell.State.DESELECTED);
+
     }
 
     @Test
     void selectTest() {
         testCell.setAsSelected();
-        assertTrue(testCell.isSelected());
+        assertEquals(testCell.getState(), Cell.State.SELECTED);
     }
 
     @Test
     void flagSetTrueTest() {
         testCell.setFlag(true);
-        assertTrue(testCell.getFlag());
+        assertEquals(testCell.getState(), Cell.State.FLAGGED);
     }
 
     @Test
     void flagSetFalseTest() {
         testCell.setFlag(true);
-        testCell.setFlag(false);
-        assertFalse(testCell.getFlag());
-    }
-
-    @Test
-    void testNegativeRow() {
-        assertThrows(IllegalArgumentException.class,() -> new CellImplTesting(-2, 3));
-    }
-
-    @Test
-    void testNegativeColumn () {
-        assertThrows(IllegalArgumentException.class, () -> new CellImplTesting(3, -2));
+        assertEquals(testCell.getState(), Cell.State.DESELECTED);
     }
 }
