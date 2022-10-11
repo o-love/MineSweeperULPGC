@@ -23,19 +23,19 @@ class CellTest {
 
     @Test
     void selectTest() {
-        testCell.setAsSelected();
+        testCell.setState(Cell.State.SELECTED);
         assertEquals(testCell.getState(), Cell.State.SELECTED);
     }
 
     @Test
-    void flagSetTrueTest() {
-        testCell.setFlag(true);
+    void flagTest() {
+        testCell.setState(Cell.State.FLAGGED);
         assertEquals(testCell.getState(), Cell.State.FLAGGED);
     }
 
     @Test
-    void flagSetFalseTest() {
-        testCell.setFlag(true);
+    void DeselectTest() {
+        testCell.setState(Cell.State.DESELECTED);
         assertEquals(testCell.getState(), Cell.State.DESELECTED);
     }
 }

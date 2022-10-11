@@ -6,57 +6,34 @@ import net.oscarlove.minesweeper.model.util.ObservableImpl;
 
 public abstract class Cell implements Observable {
 
-    private final int x;
-    private final int y;
+    public enum State {
+        DESELECTED,
+        SELECTED,
+        FLAGGED,
+    }
+
     private final ObservableImpl observableManager = new ObservableImpl();
 
-    private boolean isSelected = false;
-
-    private boolean flag = false;
+    private State state = State.DESELECTED;
 
     /**
-     * @implSpec Both booleans are initially set to {@code false}.
-     * @param x Row cell is located at.
-     * @param y Column cell is located at.
      *
-     * @throws IllegalArgumentException When {@code x} or {@code y} is negative.
+     * @param state Set the state of the {@code Cell}
      */
-    public Cell(int x, int y) {
-        if (x < 0 || y < 0) {
-            throw new IllegalArgumentException("x and y must be positive numbers");
-        }
-
-        this.x = x;
-        this.y = y;
-    }
-
-    public void setAsSelected() {
-        isSelected = true;
+    public void setState(State state) {
+        this.state = state;
 
         updateObservers();
     }
 
-    public int getX() {
-        return x;
+    /**
+     *
+     * @return The state of the {@code Cell}
+     */
+    public State getState() {
+        return this.state;
     }
 
-    public int getY() {
-        return y;
-    }
-
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setFlag(boolean flag) {
-        this.flag = flag;
-
-        updateObservers();
-    }
-
-    public boolean getFlag() {
-        return flag;
-    }
     // Observable
 
 

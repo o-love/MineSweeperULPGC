@@ -5,15 +5,11 @@ public class NumberedCell extends Cell {
     private final int cellValue;
 
     /**
-     *
-     * @param x Row where cell is located.
-     * @param y Column where cell is located.
      * @param cellValue Value indicating number of mines around this cell.
-     *
      * @throws IllegalArgumentException When cellValue has an out-of-bounds number.
      */
-    public NumberedCell(int x, int y, int cellValue) {
-        super(x, y);
+    public NumberedCell(int cellValue) {
+        super();
 
         checkValid(cellValue);
 

@@ -11,7 +11,7 @@ class NumberedCellTest {
 
     @BeforeEach
     void setup() {
-        cell = new NumberedCell(3, 3, 3);
+        cell = new NumberedCell(3);
     }
 
     @Test
@@ -19,13 +19,4 @@ class NumberedCellTest {
         assertEquals(cell.getCellValue(), 3);
     }
 
-    @Test
-    void testCreateNegativeCell() {
-        assertThrows(IllegalArgumentException.class,() -> new NumberedCell(2,2, -3));
-    }
-
-    @Test
-    void testCreateOverBoundCell() {
-        assertThrows(IllegalArgumentException.class,() -> new NumberedCell(2,2, 9));
-    }
 }
