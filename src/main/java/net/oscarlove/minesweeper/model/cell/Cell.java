@@ -17,13 +17,21 @@ public abstract class Cell implements Observable {
     private State state = State.DESELECTED;
 
     /**
-     *
-     * @param state Set the state of the {@code Cell}
+     * Sets the {@code State} of the Cell to {@code SELECTED}.
      */
-    public void setState(State state) {
-        this.state = state;
+    public void setSelected() {
+        setState(State.SELECTED);
+    }
 
-        updateObservers();
+    /**
+     * @throws IllegalStateException If trying to change flag while cell is selected.
+     */
+    public void setFlag(boolean flagSet) {
+        if (this.state.equals(State.SELECTED)) {
+            throw new IllegalStateException("Can't flag a selected Cell");
+        }
+
+        setState(flagSet ? State.FLAGGED : State.DESELECTED);
     }
 
     /**
@@ -32,6 +40,14 @@ public abstract class Cell implements Observable {
      */
     public State getState() {
         return this.state;
+    }
+
+    private void setState(State state) {
+
+
+        this.state = state;
+
+        updateObservers();
     }
 
     // Observable

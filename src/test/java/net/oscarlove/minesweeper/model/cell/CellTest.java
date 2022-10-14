@@ -23,19 +23,32 @@ class CellTest {
 
     @Test
     void selectTest() {
-        testCell.setState(Cell.State.SELECTED);
+        testCell.setSelected();
         assertEquals(testCell.getState(), Cell.State.SELECTED);
     }
 
     @Test
     void flagTest() {
-        testCell.setState(Cell.State.FLAGGED);
+        testCell.setFlag(true);
         assertEquals(testCell.getState(), Cell.State.FLAGGED);
     }
 
     @Test
-    void DeselectTest() {
-        testCell.setState(Cell.State.DESELECTED);
+    void DeFlagTest() {
+        testCell.setFlag(true);
+        testCell.setFlag(false);
         assertEquals(testCell.getState(), Cell.State.DESELECTED);
+    }
+
+    @Test
+    void IllegalFlagEnableTest() {
+        testCell.setSelected();
+        assertThrows(IllegalStateException.class, () -> testCell.setFlag(true));
+    }
+
+    @Test
+    void IllegalFlagDisableTest() {
+        testCell.setSelected();
+        assertThrows(IllegalStateException.class, () -> testCell.setFlag(true));
     }
 }
