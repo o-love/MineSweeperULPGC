@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="New structure">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterfaceTest.java" afterDir="false" />
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="MineSweeperBoard Test board made.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/MineSweeperBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/MineSweeperBoardGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/MineSweeperBoardGeneratorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/MineSeeperGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/MineSeeperGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/MineSweeperBoardImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/interfaces/MineSweeperBoardInterfaceTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -53,12 +59,39 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+      <recent name="net.oscarlove.minesweeper.model.interfaces.MineSweeperBoardInterfaceTest" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="net.oscarlove.minesweeper.model.board" />
+      <recent name="net.oscarlove.minesweeper.model.util" />
+      <recent name="net.oscarlove.minesweeper.model.cell" />
       <recent name="net.oscarlove.minesweeper.model.interfaces" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.All in MineSweeper">
+    <configuration name="All in MineSweeper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MineSweeper" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MineSweeper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.oscarlove.minesweeper.model.cell.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.cell" />
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.cell.CellTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MineSweeperBoardInterfaceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MineSweeper" />
       <extension name="coverage">
@@ -74,8 +107,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NumberedCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MineSweeper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.oscarlove.minesweeper.model.cell.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.cell" />
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.cell.NumberedCellTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ObservableImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MineSweeper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.oscarlove.minesweeper.model.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.util" />
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.util.ObservableImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in MineSweeper" />
+        <item itemvalue="JUnit.CellTest" />
+        <item itemvalue="JUnit.ObservableImplTest" />
+        <item itemvalue="JUnit.NumberedCellTest" />
         <item itemvalue="JUnit.MineSweeperBoardInterfaceTest" />
       </list>
     </recent_temporary>
@@ -94,7 +161,11 @@
       <workItem from="1664518399463" duration="1972000" />
       <workItem from="1664563313673" duration="3563000" />
       <workItem from="1664958986470" duration="1798000" />
-      <workItem from="1665331462304" duration="1128000" />
+      <workItem from="1665331462304" duration="2681000" />
+      <workItem from="1665476421262" duration="11207000" />
+      <workItem from="1665510865634" duration="1145000" />
+      <workItem from="1665652275796" duration="3048000" />
+      <workItem from="1665768412086" duration="2628000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1662986402370</created>
@@ -117,7 +188,56 @@
       <option name="project" value="LOCAL" />
       <updated>1664566279189</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Basic Tests for MineSweeperBoardInterface">
+      <created>1665332711184</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665332711184</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created Tests for all current model classes which implement own behaviour.">
+      <created>1665509882612</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665509882612</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Cell implementation with position inside Cell">
+      <created>1665509990391</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665509990391</updated>
+    </task>
+    <task id="LOCAL-00007" summary="New Cell test using enums and without position.">
+      <created>1665510396690</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665510396690</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Finished new Cell structure">
+      <created>1665511088597</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1665511088597</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added business logic to Cell State">
+      <created>1665770093626</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665770093626</updated>
+    </task>
+    <task id="LOCAL-00010" summary="MineSweeperBoard Test board made.">
+      <created>1665771023278</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665771023278</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +258,13 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Mess of an idea. &#10;To be deleted and redone." />
     <MESSAGE value="New structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="New structure" />
+    <MESSAGE value="Basic Tests for MineSweeperBoardInterface" />
+    <MESSAGE value="Created Tests for all current model classes which implement own behaviour." />
+    <MESSAGE value="Cell implementation with position inside Cell" />
+    <MESSAGE value="New Cell test using enums and without position." />
+    <MESSAGE value="Finished new Cell structure" />
+    <MESSAGE value="Added business logic to Cell State" />
+    <MESSAGE value="MineSweeperBoard Test board made." />
+    <option name="LAST_COMMIT_MESSAGE" value="MineSweeperBoard Test board made." />
   </component>
 </project>
