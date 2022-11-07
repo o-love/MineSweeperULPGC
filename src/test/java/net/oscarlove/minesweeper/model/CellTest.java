@@ -61,6 +61,12 @@ public class CellTest {
         assertEquals(Cell.State.SELECTED, cell.getState());
     }
 
+    @Test
+    void checkThrowsOnNullState(){
+        Cell cell = buildCell();
+        assertThrows(NullPointerException.class, () -> cell.setState(null));
+    }
+
     Cell buildCell() {
         return Cell.build();
     }
