@@ -5,14 +5,15 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class BoardCellGeneratorTest {
 
+    BoardCellGenerator testGenerator = buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, () -> baseCellFactory(), () -> minedCellFactory());
+
     final static Dimension TEST_SIZE = new Dimension(2, 2);
     final static int TEST_NUM_MINES = 2;
-
-    BoardCellGenerator testGenerator = BoardCellGenerator.build(TEST_SIZE, TEST_NUM_MINES, () -> baseCellFactory(), () -> minedCellFactory());
 
     static Cell baseCellFactory() {
         Cell toReturn = Cell.build();
@@ -32,13 +33,13 @@ public class BoardCellGeneratorTest {
 
     @Test
     void testReturnsList() {
-        assertNotNull(testGenerator.buildBoardCells().getClass());
+        assertNotNull(testGenerator.get().getClass());
     }
 
     @Test
     void testReturnsSublists() {
         for (int i = 0; i < TEST_SIZE.rows(); i++) {
-            assertNotNull(testGenerator.buildBoardCells().get(i));
+            assertNotNull(testGenerator.get().get(i));
         }
     }
 
@@ -46,14 +47,14 @@ public class BoardCellGeneratorTest {
     void testAllContainCells() {
         for (int i = 0; i < TEST_SIZE.rows(); i++) {
             for (int j = 0; j < TEST_SIZE.columns(); j++) {
-                assertNotNull(testGenerator.buildBoardCells().get(i).get(j));
+                assertNotNull(testGenerator.get().get(i).get(j));
             }
         }
     }
 
     @Test
     void testCorrectNumberOfMinedCells() {
-        assertEquals(TEST_NUM_MINES, mineCount(testGenerator.buildBoardCells()));
+        assertEquals(TEST_NUM_MINES, mineCount(testGenerator.get()));
     }
 
     int mineCount(List<List<Cell>> cellBoard) {
@@ -68,13 +69,51 @@ public class BoardCellGeneratorTest {
                 .count();
     }
 
-    interface BoardCellGenerator {
-        List<List<Cell>> buildBoardCells();
+    @Test
+    void testThrowsOnNulls() {
+        assertThrows(NullPointerException.class,
+                () -> buildBoardCellGenerator(null, TEST_NUM_MINES, () -> baseCellFactory(), () -> minedCellFactory())
+        );
+        assertThrows(NullPointerException.class,
+                () -> buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, null, () -> minedCellFactory())
+        );
+        assertThrows(NullPointerException.class,
+                () -> buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, () -> baseCellFactory(), null)
+        );
+    }
+
+    @Test
+    void testThrowsOnNegativeNumberOfMines() {
+        assertThrows(IllegalArgumentException.class,
+                () -> buildBoardCellGenerator(TEST_SIZE, -2, () -> baseCellFactory(), () -> minedCellFactory())
+        );
+    }
+
+    BoardCellGenerator buildBoardCellGenerator(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
+        return BoardCellGenerator.build(size, numberOfMines, baseCellFactory, minedCellFactory);
+    }
+
+    interface BoardCellGenerator extends Supplier<List<List<Cell>>> {
 
         static BoardCellGenerator build(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
             return new BoardCellGenerator() {
+
+                {
+                    checkArgumentsValid();
+                }
+
+                private void checkArgumentsValid() {
+                    if (numberOfMines < 0) {
+                        throw new IllegalArgumentException("Number of mines can not be less than 0.");
+                    }
+
+                    Objects.requireNonNull(baseCellFactory, "baseCellFactory for BoardCellGenerator con not be null.");
+                    Objects.requireNonNull(minedCellFactory, "minedCellFactory for BoardCellGenerator con not be null.");
+                    Objects.requireNonNull(size, "size for BoardCellGenerator con not be null.");
+                }
+
                 @Override
-                public List<List<Cell>> buildBoardCells() {
+                public List<List<Cell>> get() {
                     List<List<Cell>> toReturn = buildBaseList();
 
                     addCells(toReturn);
