@@ -2,6 +2,7 @@ package net.oscarlove.minesweeper.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import net.oscarlove.minesweeper.model.board.BoardCellGenerator;
 import net.oscarlove.minesweeper.model.cell.Cell;
 import org.junit.jupiter.api.Test;
 
@@ -90,8 +91,6 @@ public class BoardCellGeneratorTest {
     }
 
     BoardCellGenerator buildBoardCellGenerator(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
-        return BoardCellGenerator.build(size, numberOfMines, baseCellFactory, minedCellFactory);
+        return BoardCellGenerator.create(size, numberOfMines, baseCellFactory, minedCellFactory);
     }
-
-
 }

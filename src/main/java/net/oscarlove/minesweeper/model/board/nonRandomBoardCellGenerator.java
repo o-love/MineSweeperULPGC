@@ -1,5 +1,6 @@
-package net.oscarlove.minesweeper.model;
+package net.oscarlove.minesweeper.model.board;
 
+import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.cell.Cell;
 
 import java.util.ArrayList;
@@ -7,18 +8,15 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-public class BoardCellGenerator implements Supplier<List<List<Cell>>> {
+class nonRandomBoardCellGenerator implements BoardCellGenerator {
 
-    public static BoardCellGenerator build(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
-        return new BoardCellGenerator(size, numberOfMines, baseCellFactory, minedCellFactory);
-    }
 
     private final Dimension size;
     private final int numberOfMines;
     private final Supplier<Cell> baseCellFactory;
     private final Supplier<Cell> minedCellFactory;
 
-    private BoardCellGenerator(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
+    nonRandomBoardCellGenerator(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
         this.size = size;
         this.numberOfMines = numberOfMines;
         this.baseCellFactory = baseCellFactory;
@@ -84,7 +82,7 @@ public class BoardCellGenerator implements Supplier<List<List<Cell>>> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BoardCellGenerator that = (BoardCellGenerator) o;
+        nonRandomBoardCellGenerator that = (nonRandomBoardCellGenerator) o;
         return numberOfMines == that.numberOfMines && size.equals(that.size) && baseCellFactory.equals(that.baseCellFactory) && minedCellFactory.equals(that.minedCellFactory);
     }
 
