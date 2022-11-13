@@ -1,5 +1,6 @@
 package net.oscarlove.minesweeper.model;
 
+import net.oscarlove.minesweeper.model.board.Board;
 import net.oscarlove.minesweeper.model.board.BoardCellGenerator;
 import net.oscarlove.minesweeper.model.cell.Cell;
 import org.junit.jupiter.api.Test;
@@ -92,41 +93,5 @@ public class BoardTest {
     }
 
 
-    interface Board {
-        Cell getCell(Position position);
-        int getCellValue(Position position);
 
-        static Board build(List<List<Cell>> cells, List<Position> minePositions) {
-
-            return new Board() {
-                @Override
-                public Cell getCell (Position position) {
-                    return cells.get(position.row()).get(position.column());
-                }
-
-                @Override
-                public int getCellValue(Position position) {
-                    if (isAMine(position)) {
-                        return -1;
-                    }
-
-                    return (int) minePositions.stream()
-                            .filter(minePos -> isAdjacent(minePos, position))
-                            .count();
-                }
-
-                private boolean isAMine(Position position) {
-                    return minePositions.contains(position);
-                }
-
-                private boolean isAdjacent(Position pos1, Position pos2){
-                    return isAdjacent(pos1.row(), pos2.row()) && isAdjacent(pos1.column(), pos2.column());
-                }
-
-                private boolean isAdjacent(int int1, int int2) {
-                    return Math.abs(int1 - int2) <= 1;
-                }
-            };
-        }
-    }
 }
