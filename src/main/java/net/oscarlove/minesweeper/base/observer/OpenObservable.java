@@ -2,7 +2,6 @@ package net.oscarlove.minesweeper.base.observer;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public interface OpenObservable extends Observable {
     void updateObservers();
@@ -13,17 +12,17 @@ public interface OpenObservable extends Observable {
             private final Collection<Observer> observers = new HashSet<>();
             @Override
             public void updateObservers() {
-
+                observers.forEach(Observer::update);
             }
 
             @Override
             public void addObserver(Observer observer) {
-
+                this.observers.add(observer);
             }
 
             @Override
             public void removeObserver(Observer observer) {
-
+                this.observers.remove(observer);
             }
         };
     }
