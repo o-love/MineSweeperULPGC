@@ -1,11 +1,11 @@
-package net.oscarlove.minesweeper.model;
+package net.oscarlove.minesweeper.model.cell;
 
-import net.oscarlove.minesweeper.model.cell.Cell;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CellTest {
+
+public abstract class GeneralCellTest {
 
     @Test
     void defaultTest() {
@@ -68,9 +68,7 @@ public class CellTest {
         assertThrows(NullPointerException.class, () -> cell.setState(null));
     }
 
-    Cell buildCell() {
-        return Cell.build();
-    }
+    abstract Cell buildCell();
 
 
 }
