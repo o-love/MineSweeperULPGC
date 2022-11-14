@@ -1,4 +1,4 @@
-package net.oscarlove.minesweeper.observer;
+package net.oscarlove.minesweeper.base.observer;
 
 public interface Observable {
     void addObserver(Observer observer);
