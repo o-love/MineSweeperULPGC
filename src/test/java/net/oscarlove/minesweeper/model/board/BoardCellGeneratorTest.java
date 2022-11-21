@@ -1,8 +1,8 @@
-package net.oscarlove.minesweeper.model;
+package net.oscarlove.minesweeper.model.board;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import net.oscarlove.minesweeper.model.board.BoardCellGenerator;
+import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.cell.Cell;
 import org.junit.jupiter.api.Test;
 
