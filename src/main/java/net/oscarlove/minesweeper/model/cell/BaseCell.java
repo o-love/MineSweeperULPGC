@@ -2,7 +2,7 @@ package net.oscarlove.minesweeper.model.cell;
 
 import java.util.Objects;
 
-public class BaseCell implements Cell {
+class BaseCell implements Cell {
 
     protected BaseCell() {}
 
