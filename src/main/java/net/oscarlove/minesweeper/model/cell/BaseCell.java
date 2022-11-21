@@ -4,7 +4,7 @@ import java.util.Objects;
 
 class BaseCell implements Cell {
 
-    protected BaseCell() {}
+    BaseCell() {}
 
     private State state = State.UNTOUCHED;
 
