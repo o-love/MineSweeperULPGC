@@ -7,7 +7,7 @@ import net.oscarlove.minesweeper.base.observer.OpenObservable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class OpenObservableTest {
+public abstract class  OpenObservableTest {
 
     OpenObservable openObservable;
     Boolean hasExecuted;
@@ -69,7 +69,5 @@ public class OpenObservableTest {
         assertEquals(1, haveExecuted);
     }
 
-    private OpenObservable build() {
-        return OpenObservable.create();
-    }
+    protected abstract OpenObservable build();
 }
