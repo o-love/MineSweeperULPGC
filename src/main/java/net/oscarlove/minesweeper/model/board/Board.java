@@ -12,7 +12,7 @@ public class Board {
      * @throws NullPointerException If any of the arguments are {@code null}.
      * @throws IllegalArgumentException If {@code cells} is not rectangular.
      */
-    static Board create(List<List<Cell>> cells, Collection<Position> minePositions) {
+    public static Board create(List<List<Cell>> cells, Collection<Position> minePositions) {
         return new Board(cells, minePositions);
     }
 
