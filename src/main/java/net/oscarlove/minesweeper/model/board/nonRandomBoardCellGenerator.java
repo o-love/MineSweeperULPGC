@@ -1,11 +1,11 @@
 package net.oscarlove.minesweeper.model.board;
 
 import net.oscarlove.minesweeper.model.Dimension;
+import net.oscarlove.minesweeper.model.Position;
 import net.oscarlove.minesweeper.model.cell.Cell;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 class nonRandomBoardCellGenerator implements BoardCellGenerator {
@@ -15,6 +15,7 @@ class nonRandomBoardCellGenerator implements BoardCellGenerator {
     private final int numberOfMines;
     private final Supplier<Cell> baseCellFactory;
     private final Supplier<Cell> minedCellFactory;
+    private Collection<Position> minedCellPosition = Collections.emptyList();
 
     nonRandomBoardCellGenerator(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
         this.size = size;
@@ -37,6 +38,7 @@ class nonRandomBoardCellGenerator implements BoardCellGenerator {
 
     @Override
     public List<List<Cell>> get() {
+        this.minedCellPosition = new HashSet<>();
         List<List<Cell>> toReturn = buildBaseList();
 
         addCells(toReturn);
@@ -55,27 +57,37 @@ class nonRandomBoardCellGenerator implements BoardCellGenerator {
     }
 
     private void addCells(List<List<Cell>> cellBoard) {
-        forEachCellPosSet(cellBoard, new Supplier<>() {
+        forEachCellPosSet(cellBoard, createCellBasedOnPositionFactory());
+    }
+
+    private void forEachCellPosSet(List<List<Cell>> cellBoard, Function<Position, Cell> setterForEachSupplier) {
+        for (int i = 0; i < size.rows(); i++) {
+            for (int j = 0; j < size.columns(); j++) {
+                cellBoard.get(i).add(j, setterForEachSupplier.apply(new Position(i, j)));
+            }
+        }
+    }
+
+    private Function<Position, Cell> createCellBasedOnPositionFactory() {
+        return new Function<>() {
             int minesLeftToAdd = numberOfMines;
 
             @Override
-            public Cell get() {
+            public Cell apply(Position position) {
                 if (minesLeftToAdd > 0) {
                     minesLeftToAdd--;
+                    minedCellPosition.add(position);
                     return minedCellFactory.get();
                 }
 
                 return baseCellFactory.get();
             }
-        });
+        };
     }
 
-    private void forEachCellPosSet(List<List<Cell>> cellBoard, Supplier<Cell> setterForEachSupplier) {
-        for (int i = 0; i < size.rows(); i++) {
-            for (int j = 0; j < size.columns(); j++) {
-                cellBoard.get(i).add(j, setterForEachSupplier.get());
-            }
-        }
+    @Override
+    public Collection<Position> getLastGenerationMinedCellPositions() {
+        return Collections.unmodifiableCollection(this.minedCellPosition);
     }
 
     @Override

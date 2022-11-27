@@ -3,10 +3,13 @@ package net.oscarlove.minesweeper.model.board;
 import static org.junit.jupiter.api.Assertions.*;
 
 import net.oscarlove.minesweeper.model.Dimension;
+import net.oscarlove.minesweeper.model.Position;
 import net.oscarlove.minesweeper.model.cell.Cell;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class BoardCellGeneratorTest {
@@ -88,6 +91,30 @@ public class BoardCellGeneratorTest {
         assertThrows(IllegalArgumentException.class,
                 () -> buildBoardCellGenerator(TEST_SIZE, -2, () -> baseCellFactory(), () -> minedCellFactory())
         );
+    }
+
+    @Test
+    void testMinedCellsInCorrectPosition() {
+        assertTrue(mineCellsLineUpWithReported(testGenerator.get(), testGenerator.getLastGenerationMinedCellPositions()));
+    }
+
+    boolean mineCellsLineUpWithReported(List<List<Cell>> generated, Collection<Position> minedCells) {
+        return forEveryMineCheck(generated, position -> minedCells.stream().anyMatch(position::equals));
+    }
+
+    boolean forEveryMineCheck(List<List<Cell>> generated, Function<Position, Boolean> onPosition) {
+        for (int i = 0; i < generated.size(); i++) {
+            for (int j = 0; j < generated.get(0).size(); j++) {
+                if (!isMined(generated.get(i).get(j))) {
+                    continue;
+                }
+
+                if (!onPosition.apply(new Position(i, j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     BoardCellGenerator buildBoardCellGenerator(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
