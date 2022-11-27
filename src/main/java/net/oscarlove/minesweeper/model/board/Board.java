@@ -8,20 +8,41 @@ import java.util.*;
 public class Board {
 
     /**
-     *
      * @throws NullPointerException If any of the arguments are {@code null}.
      * @throws IllegalArgumentException If {@code cells} is not rectangular.
      */
     public static Board create(List<List<Cell>> cells, Collection<Position> minePositions) {
+        checkArguments(cells, minePositions);
+
         return new Board(cells, minePositions);
+    }
+
+    /**
+     * @throws NullPointerException If {@code boardCellGenerator} is {@code null}.
+     */
+    public static Board create(BoardCellGenerator boardCellGenerator) {
+        Objects.requireNonNull(boardCellGenerator, "boardCellGenerator can not be null.");
+
+        return create(boardCellGenerator.get(), boardCellGenerator.getLastGenerationMinedCellPositions());
+    }
+
+    private static void checkArguments(List<List<Cell>> cells, Collection<Position> minePositions) {
+        Objects.requireNonNull(cells, "cells can not be null.");
+        Objects.requireNonNull(minePositions, "minePositions can not be null.");
+
+        if (!isAllRowsSameLength(cells)) {
+            throw new IllegalArgumentException("Cell Board is not Rectangular");
+        }
+    }
+
+    private static boolean isAllRowsSameLength(List<List<Cell>> cells) {
+        return cells.stream().allMatch(list -> cells.get(0).size() == list.size());
     }
 
     private final List<List<Cell>> cells;
     private final Collection<Position> minePositions;
 
     private Board(List<List<Cell>> cells, Collection<Position> minePositions) {
-        checkArguments(cells, minePositions);
-
         this.cells = copy(cells);
         this.minePositions = copy(minePositions);
     }
@@ -75,18 +96,5 @@ public class Board {
 
     private Collection<Position> copy(Collection<Position> minePositions) {
         return new HashSet<>(minePositions);
-    }
-
-    private void checkArguments(List<List<Cell>> cells, Collection<Position> minePositions) {
-        Objects.requireNonNull(cells);
-        Objects.requireNonNull(minePositions);
-
-        if (!isAllRowsSameLength(cells)) {
-            throw new IllegalArgumentException("Cell Board is not Rectangular");
-        }
-    }
-
-    private boolean isAllRowsSameLength(List<List<Cell>> cells) {
-        return cells.stream().allMatch(list -> cells.get(0).size() == list.size());
     }
 }
