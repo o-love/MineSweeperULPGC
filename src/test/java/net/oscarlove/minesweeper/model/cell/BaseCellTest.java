@@ -4,6 +4,6 @@ public class BaseCellTest extends GeneralCellTest{
 
     @Override
     Cell buildCell() {
-        return Cell.build();
+        return Cell.create();
     }
 }

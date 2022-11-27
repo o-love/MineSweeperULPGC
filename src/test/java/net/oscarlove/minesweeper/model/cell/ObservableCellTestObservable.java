@@ -9,7 +9,7 @@ public class ObservableCellTestObservable extends OpenObservableTest {
     @Override
     protected OpenObservable build() {
         return new OpenObservable() {
-            final ObservableCell observableCell = ObservableCell.create(Cell.build());
+            final ObservableCell observableCell = ObservableCell.create(Cell.create());
 
             @Override
             public void updateObservers() {

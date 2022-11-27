@@ -19,14 +19,14 @@ public class BoardTest {
 
     @Test
     void singleCelledBoardReturns() {
-        Board board = Board.create(List.of(List.of(Cell.build())), List.of());
+        Board board = Board.create(List.of(List.of(Cell.create())), List.of());
 
-        assertEquals(Cell.build(), board.getCell(new Position(0,0)));
+        assertEquals(Cell.create(), board.getCell(new Position(0,0)));
     }
 
     @Test
     void sameSingleCelledBoardReturns() {
-        Cell cell = Cell.build();
+        Cell cell = Cell.create();
         cell.setState(Cell.State.FLAGGED);
 
         Board board = Board.create(List.of(List.of(cell)), List.of());
@@ -89,7 +89,7 @@ public class BoardTest {
     }
 
     private List<List<Cell>> createCellBoard(Dimension dimension) {
-        return BoardCellGenerator.create(dimension, 0, Cell::build, Cell::build).get();
+        return BoardCellGenerator.create(dimension, 0, Cell::create, Cell::create).get();
     }
 
 

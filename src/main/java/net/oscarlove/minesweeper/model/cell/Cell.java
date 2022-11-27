@@ -11,7 +11,13 @@ public interface Cell {
 
     State getState();
 
-    static Cell build() {
+    static Cell create() {
         return new BaseCell();
+    }
+
+    static Cell of(State state) {
+        Cell cell = create();
+        cell.setState(state);
+        return cell;
     }
 }

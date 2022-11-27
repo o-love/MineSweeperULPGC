@@ -4,6 +4,6 @@ public class ObservableCellTestCell extends GeneralCellTest {
 
     @Override
     ObservableCell buildCell() {
-        return ObservableCell.create(Cell.build());
+        return ObservableCell.create(Cell.create());
     }
 }

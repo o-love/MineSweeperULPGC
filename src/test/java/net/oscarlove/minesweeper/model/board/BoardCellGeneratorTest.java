@@ -20,13 +20,13 @@ public class BoardCellGeneratorTest {
     final static int TEST_NUM_MINES = 2;
 
     static Cell baseCellFactory() {
-        Cell toReturn = Cell.build();
+        Cell toReturn = Cell.create();
         toReturn.setState(Cell.State.UNTOUCHED);
         return toReturn;
     }
 
     static Cell minedCellFactory() {
-        Cell toReturn = Cell.build();
+        Cell toReturn = Cell.create();
         toReturn.setState(Cell.State.SELECTED);
         return toReturn;
     }
