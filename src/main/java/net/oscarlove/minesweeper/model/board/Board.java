@@ -1,5 +1,6 @@
 package net.oscarlove.minesweeper.model.board;
 
+import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.Position;
 import net.oscarlove.minesweeper.model.cell.Cell;
 
@@ -8,7 +9,7 @@ import java.util.*;
 public class Board {
 
     /**
-     * @throws NullPointerException If any of the arguments are {@code null}.
+     * @throws NullPointerException     If any of the arguments are {@code null}.
      * @throws IllegalArgumentException If {@code cells} is not rectangular.
      */
     public static Board create(List<List<Cell>> cells, Collection<Position> minePositions) {
@@ -47,7 +48,7 @@ public class Board {
         this.minePositions = copy(minePositions);
     }
 
-    public Cell getCell (Position position) {
+    public Cell getCell(Position position) {
         return cells.get(position.row()).get(position.column());
     }
 
@@ -61,11 +62,15 @@ public class Board {
                 .count();
     }
 
+    public Dimension produceDimension() {
+        return new Dimension(cells.size(), cells.get(0).size());
+    }
+
     private boolean isAMine(Position position) {
         return minePositions.contains(position);
     }
 
-    private boolean isAdjacent(Position pos1, Position pos2){
+    private boolean isAdjacent(Position pos1, Position pos2) {
         return isAdjacent(pos1.row(), pos2.row()) && isAdjacent(pos1.column(), pos2.column());
     }
 

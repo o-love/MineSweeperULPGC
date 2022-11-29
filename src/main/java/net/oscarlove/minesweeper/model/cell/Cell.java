@@ -12,7 +12,7 @@ public interface Cell {
     State getState();
 
     static Cell create() {
-        return new BaseCell();
+        return BaseCell.create();
     }
 
     static Cell of(State state) {

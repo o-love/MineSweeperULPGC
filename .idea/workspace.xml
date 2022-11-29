@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="BoardCellGeneratorTest without randomness">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/BoardCellGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Cell/BaseCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDisplay.java" afterDir="false" />
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Basic Swing UI framework">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/controller/CellController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GUISwing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Cell/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/BoardCellGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/BoardCellGeneratorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/CellTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/CellTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Dimension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Dimension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/BaseCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/BaseCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/cli/BoardCLIDisplay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/BoardSwingDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/BoardSwingDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/CellSwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/CellSwing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,17 +27,26 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.1/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectId" id="2EfUucVKGf3eokRD9F2j2lo4ImW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,20 +54,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "actions.on.save"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -65,6 +81,9 @@
       <recent name="net.oscarlove.minesweeper.model" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="net.oscarlove.minesweeper.model.board" />
+      <recent name="net.oscarlove.minesweeper.base" />
+      <recent name="net.oscarlove.minesweeper.model.cell" />
       <recent name="net.oscarlove.minesweeper.model" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
@@ -77,23 +96,60 @@
       <recent name="net.oscarlove.minesweeper.model.interfaces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.net.oscarlove.minesweeper.model in MineSweeper">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.Main" />
+      <module name="MineSweeper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.oscarlove.minesweeper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in MineSweeper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MineSweeper" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BoardCellGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MineSweeper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="net.oscarlove.minesweeper.model.cell.*" />
+          <option name="PATTERN" value="net.oscarlove.minesweeper.model.board.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model" />
-      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.BoardCellGeneratorTest" />
+      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.board" />
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.board.BoardCellGeneratorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardCellGeneratorTest.testAllContainCells" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardCellGeneratorTest.testMinedCellsInCorrectPosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MineSweeper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.oscarlove.minesweeper.model.board.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.board" />
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.board.BoardCellGeneratorTest" />
+      <option name="METHOD_NAME" value="testMinedCellsInCorrectPosition" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ObservableCellTestCell" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MineSweeper" />
       <extension name="coverage">
         <pattern>
@@ -101,67 +157,20 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model" />
-      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.BoardCellGeneratorTest" />
-      <option name="METHOD_NAME" value="testAllContainCells" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardCellGeneratorTest.testCorrectNumberOfMinedCells" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MineSweeper" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="net.oscarlove.minesweeper.model.cell.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model" />
-      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.BoardCellGeneratorTest" />
-      <option name="METHOD_NAME" value="testCorrectNumberOfMinedCells" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CellTest.checkThrowsOnNullState" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MineSweeper" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="net.oscarlove.minesweeper.model.cell.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model" />
-      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.CellTest" />
-      <option name="METHOD_NAME" value="checkThrowsOnNullState" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="net.oscarlove.minesweeper.model in MineSweeper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MineSweeper" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="net.oscarlove.minesweeper.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.cell" />
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.cell.ObservableCellTestCell" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.net.oscarlove.minesweeper.model in MineSweeper" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BoardCellGeneratorTest" />
-        <item itemvalue="JUnit.BoardCellGeneratorTest.testCorrectNumberOfMinedCells" />
-        <item itemvalue="JUnit.BoardCellGeneratorTest.testAllContainCells" />
-        <item itemvalue="JUnit.CellTest.checkThrowsOnNullState" />
+        <item itemvalue="JUnit.BoardCellGeneratorTest.testMinedCellsInCorrectPosition" />
+        <item itemvalue="JUnit.All in MineSweeper" />
+        <item itemvalue="JUnit.ObservableCellTestCell" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +198,15 @@
       <workItem from="1667591912776" duration="2305000" />
       <workItem from="1667826169161" duration="5098000" />
       <workItem from="1667912264937" duration="383000" />
-      <workItem from="1667988629763" duration="5714000" />
+      <workItem from="1667988629763" duration="6130000" />
+      <workItem from="1668234873966" duration="2353000" />
+      <workItem from="1668352271778" duration="3617000" />
+      <workItem from="1668406182440" duration="3459000" />
+      <workItem from="1668438730008" duration="1523000" />
+      <workItem from="1669056199406" duration="3993000" />
+      <workItem from="1669563780028" duration="4066000" />
+      <workItem from="1669623020838" duration="2120000" />
+      <workItem from="1669654933762" duration="5654000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1662986402370</created>
@@ -324,7 +341,147 @@
       <option name="project" value="LOCAL" />
       <updated>1668002129670</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Extracted from tests and cleaned up model package">
+      <created>1668003076515</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668003076515</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Refactor BoardCellGenerator">
+      <created>1668241286333</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668241286333</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Board finished testing.">
+      <created>1668354699273</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1668354699273</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Extract Board from test">
+      <created>1668355862022</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1668355862022</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Observable Cell Test setup">
+      <created>1668406794833</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1668406794833</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Move Observer package">
+      <created>1668407177553</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1668407177553</updated>
+    </task>
+    <task id="LOCAL-00026" summary="OpenObservableTest test setup">
+      <created>1668407349973</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668407349973</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Finished OpenObservable">
+      <created>1668408639480</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1668408639480</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Make default Cell test abstract">
+      <created>1668409542657</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1668409542657</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Remove unnecessary Board interface">
+      <created>1669057162932</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669057162932</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Reorganize tests">
+      <created>1669057218137</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1669057218138</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Abstract OpenObservableTest">
+      <created>1669057995972</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1669057995972</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Finished ObservableCell">
+      <created>1669058040573</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1669058040573</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Make BaseCell package private">
+      <created>1669058186265</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1669058186265</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Fix visibility of Board Factory">
+      <created>1669058347541</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1669058347541</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Have Board generator provide list of mined Cell positions.">
+      <created>1669564975271</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1669564975271</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Update Board factory methods.">
+      <created>1669565284349</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1669565284350</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Cell Factory refactor">
+      <created>1669567694663</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1669567694663</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Cell Factory refactor">
+      <created>1669567756381</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1669567756381</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Basic Swing UI framework">
+      <created>1669567815257</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1669567815257</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,26 +499,31 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial Commit" />
-    <MESSAGE value="Mess of an idea. &#10;To be deleted and redone." />
-    <MESSAGE value="New structure" />
-    <MESSAGE value="Basic Tests for MineSweeperBoardInterface" />
-    <MESSAGE value="Created Tests for all current model classes which implement own behaviour." />
-    <MESSAGE value="Cell implementation with position inside Cell" />
-    <MESSAGE value="New Cell test using enums and without position." />
-    <MESSAGE value="Finished new Cell structure" />
-    <MESSAGE value="Added business logic to Cell State" />
-    <MESSAGE value="MineSweeperBoard Test board made." />
-    <MESSAGE value="Final commit before restarting" />
-    <MESSAGE value="Reset. Starting out from scratch" />
-    <MESSAGE value="Starting TDD for cell" />
-    <MESSAGE value="Finished Cell TDD" />
-    <MESSAGE value="Extracted Cell from CellTest" />
-    <MESSAGE value="Board TDD setup" />
     <MESSAGE value="Cell State Null Check" />
     <MESSAGE value="Basic BoardCellGeneratorTest created." />
     <MESSAGE value="BoardCellGenerator without randomness" />
     <MESSAGE value="BoardCellGeneratorTest without randomness" />
-    <option name="LAST_COMMIT_MESSAGE" value="BoardCellGeneratorTest without randomness" />
+    <MESSAGE value="Extracted from tests and cleaned up model package" />
+    <MESSAGE value="Refactor BoardCellGenerator" />
+    <MESSAGE value="Board finished testing." />
+    <MESSAGE value="Extract Board from test" />
+    <MESSAGE value="Observable Cell Test setup" />
+    <MESSAGE value="Move Observer package" />
+    <MESSAGE value="Start OpenObservableTest" />
+    <MESSAGE value="OpenObservableTest test setup" />
+    <MESSAGE value="Finished OpenObservable" />
+    <MESSAGE value="Make default Cell test abstract" />
+    <MESSAGE value="Remove unnecessary Board interface" />
+    <MESSAGE value="Reorganize tests" />
+    <MESSAGE value="Created ObservableCell after TDD" />
+    <MESSAGE value="Abstract OpenObservableTest" />
+    <MESSAGE value="Finished ObservableCell" />
+    <MESSAGE value="Make BaseCell package private" />
+    <MESSAGE value="Fix visibility of Board Factory" />
+    <MESSAGE value="Have Board generator provide list of mined Cell positions." />
+    <MESSAGE value="Update Board factory methods." />
+    <MESSAGE value="Cell Factory refactor" />
+    <MESSAGE value="Basic Swing UI framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Swing UI framework" />
   </component>
 </project>

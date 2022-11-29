@@ -4,7 +4,12 @@ import java.util.Objects;
 
 class BaseCell implements Cell {
 
-    BaseCell() {}
+    static Cell create() {
+        return new BaseCell();
+    }
+
+    private BaseCell() {
+    }
 
     private State state = State.UNTOUCHED;
 
