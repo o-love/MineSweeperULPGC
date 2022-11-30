@@ -1,7 +1,9 @@
 package net.oscarlove.minesweeper;
 
 import net.oscarlove.minesweeper.controller.CellController;
+import net.oscarlove.minesweeper.controller.GameController;
 import net.oscarlove.minesweeper.model.Dimension;
+import net.oscarlove.minesweeper.model.Position;
 import net.oscarlove.minesweeper.model.board.Board;
 import net.oscarlove.minesweeper.model.board.BoardCellGenerator;
 import net.oscarlove.minesweeper.model.cell.Cell;
@@ -16,27 +18,54 @@ public class Main {
     private static final int NUMBER_OF_MINES = 10;
 
     public static void main(String[] args) {
-        Board board = Board.create(BoardCellGenerator.create(BOARD_SIZE, NUMBER_OF_MINES, Cell::create, Main::minedCellFactory));
+        new Main();
+    }
 
-        CellController cellController = CellController.create().withBoard(board);
+    private CellController cellController;
+    private Board board;
 
+    public Main() {
+        setupController();
+        setupModel();
+        setupGUI();
+    }
+
+    private void setupController() {
+        this.cellController = CellController.create();
+    }
+
+    private void setupModel() {
+        this.board = Board.create(BoardCellGenerator.create(
+                BOARD_SIZE,
+                NUMBER_OF_MINES,
+                this::normalCellFactory,
+                this::minedCellFactory
+        ));
+        cellController.withBoard(this.board);
+    }
+
+    private void setupGUI() {
         SwingUtilities.invokeLater(() -> {
-            BoardSwingDisplay boardDisplay = new BoardSwingDisplay.Builder().of(board).withPositionListener(cellController::onCellDialogUpdate).build();
+            BoardSwingDisplay boardDisplay = new BoardSwingDisplay.Builder()
+                    .of(board)
+                    .withPositionListener(cellController::onCellDialogUpdate)
+                    .build();
 
             cellController.withBoardDisplay(boardDisplay);
 
-            new GUISwing(boardDisplay, "Minesweeper");
+            new GUISwing(boardDisplay, "Minesweeper", new java.awt.Dimension(600, 600));
         });
     }
 
-    private static Cell minedCellFactory() {
+    private ObservableCell normalCellFactory(Position position) {
         ObservableCell observableCell = ObservableCell.create(Cell.create());
-        observableCell.addObserver(Main::onGameEnd);
+        observableCell.addObserver(() -> cellController.onCellModelUpdate(position, observableCell));
         return observableCell;
     }
 
-    private static void onGameEnd() {
-        System.out.println("Game Over");
-        System.exit(0);
+    private ObservableCell minedCellFactory(Position position) {
+        ObservableCell observableCell = normalCellFactory(position);
+        observableCell.addObserver(GameController::onGameOver);
+        return observableCell;
     }
 }
