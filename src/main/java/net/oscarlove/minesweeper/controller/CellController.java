@@ -1,5 +1,6 @@
 package net.oscarlove.minesweeper.controller;
 
+import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.Position;
 import net.oscarlove.minesweeper.model.board.Board;
 import net.oscarlove.minesweeper.model.cell.Cell;
@@ -46,6 +47,27 @@ public class CellController {
         Objects.requireNonNull(boardDisplay);
         this.boardDisplay = boardDisplay;
         return this;
+    }
+
+    public void blockUpdates() {
+        this.board = new Board() {
+            final Cell cell = Cell.create();
+
+            @Override
+            public Cell getCell(Position position) {
+                return cell;
+            }
+
+            @Override
+            public int getCellValue(Position position) {
+                return 0;
+            }
+
+            @Override
+            public Dimension produceDimension() {
+                return null;
+            }
+        };
     }
 
 }

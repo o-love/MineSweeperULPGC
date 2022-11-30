@@ -22,16 +22,18 @@ public class Main {
     }
 
     private CellController cellController;
+    private GameController gameController;
     private Board board;
 
     public Main() {
-        setupController();
+        setupControllers();
         setupModel();
         setupGUI();
     }
 
-    private void setupController() {
+    private void setupControllers() {
         this.cellController = CellController.create();
+        this.gameController = GameController.create(cellController);
     }
 
     private void setupModel() {
@@ -65,7 +67,7 @@ public class Main {
 
     private ObservableCell minedCellFactory(Position position) {
         ObservableCell observableCell = normalCellFactory(position);
-        observableCell.addObserver(GameController::onGameOver);
+        observableCell.addObserver(gameController::onGameOver);
         return observableCell;
     }
 }
