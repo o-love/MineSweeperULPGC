@@ -2,6 +2,7 @@ package net.oscarlove.minesweeper.controller;
 
 import net.oscarlove.minesweeper.model.Position;
 import net.oscarlove.minesweeper.model.board.Board;
+import net.oscarlove.minesweeper.model.cell.Cell;
 import net.oscarlove.minesweeper.view.BoardDisplay;
 import net.oscarlove.minesweeper.view.CellDialog;
 
@@ -13,24 +14,6 @@ public class CellController {
         return new CellController();
     }
 
-    /**
-     * Creates a new game controller.
-     *
-     * @param board        the board to control
-     * @param boardDisplay the display to update
-     * @throws NullPointerException if {@code board} or {@code boardDisplay} is null
-     */
-    public static CellController create(Board board, BoardDisplay boardDisplay) {
-        validateArguments(board, boardDisplay);
-
-        return new CellController(board, boardDisplay);
-    }
-
-    private static void validateArguments(Board board, BoardDisplay boardDisplay) {
-        Objects.requireNonNull(board, "board cannot be null");
-        Objects.requireNonNull(boardDisplay, "boardDisplay cannot be null");
-    }
-
     private Board board;
 
     private BoardDisplay boardDisplay;
@@ -38,17 +21,14 @@ public class CellController {
     private CellController() {
     }
 
-    private CellController(Board board, BoardDisplay boardDisplay) {
-        this.board = board;
-        this.boardDisplay = boardDisplay;
-    }
-
     public void onCellDialogUpdate(Position position, CellDialog cellDialog) {
         validateArguments(position, cellDialog);
 
         board.getCell(position).setState(cellDialog.getCellState());
+    }
 
-        boardDisplay.refreshCellDisplay(position, board.getCell(position));
+    public void onCellModelUpdate(Position position, Cell cell) {
+        boardDisplay.refreshCellDisplay(position, cell);
     }
 
     private void validateArguments(Position position, CellDialog cellDialog) {
@@ -57,11 +37,13 @@ public class CellController {
     }
 
     public CellController withBoard(Board board) {
+        Objects.requireNonNull(board);
         this.board = board;
         return this;
     }
 
     public CellController withBoardDisplay(BoardDisplay boardDisplay) {
+        Objects.requireNonNull(boardDisplay);
         this.boardDisplay = boardDisplay;
         return this;
     }
