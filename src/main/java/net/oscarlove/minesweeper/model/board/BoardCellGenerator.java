@@ -6,11 +6,12 @@ import net.oscarlove.minesweeper.model.cell.Cell;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public interface BoardCellGenerator extends Supplier<List<List<Cell>>> {
 
-    static BoardCellGenerator create(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
+    static BoardCellGenerator create(Dimension size, int numberOfMines, Function<Position, Cell> baseCellFactory, Function<Position, Cell> minedCellFactory) {
         return new nonRandomBoardCellGenerator(size, numberOfMines, baseCellFactory, minedCellFactory);
     }
 

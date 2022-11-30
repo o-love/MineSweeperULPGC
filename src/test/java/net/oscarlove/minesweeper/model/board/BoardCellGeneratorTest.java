@@ -1,7 +1,5 @@
 package net.oscarlove.minesweeper.model.board;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.Position;
 import net.oscarlove.minesweeper.model.cell.Cell;
@@ -10,11 +8,12 @@ import org.junit.jupiter.api.Test;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
-import java.util.function.Supplier;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardCellGeneratorTest {
 
-    BoardCellGenerator testGenerator = buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, () -> baseCellFactory(), () -> minedCellFactory());
+    BoardCellGenerator testGenerator = buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, pos -> baseCellFactory(), pos -> minedCellFactory());
 
     final static Dimension TEST_SIZE = new Dimension(2, 2);
     final static int TEST_NUM_MINES = 2;
@@ -76,20 +75,20 @@ public class BoardCellGeneratorTest {
     @Test
     void testThrowsOnNulls() {
         assertThrows(NullPointerException.class,
-                () -> buildBoardCellGenerator(null, TEST_NUM_MINES, () -> baseCellFactory(), () -> minedCellFactory())
+                () -> buildBoardCellGenerator(null, TEST_NUM_MINES, pos -> baseCellFactory(), pos -> minedCellFactory())
         );
         assertThrows(NullPointerException.class,
-                () -> buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, null, () -> minedCellFactory())
+                () -> buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, null, pos -> minedCellFactory())
         );
         assertThrows(NullPointerException.class,
-                () -> buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, () -> baseCellFactory(), null)
+                () -> buildBoardCellGenerator(TEST_SIZE, TEST_NUM_MINES, pos -> baseCellFactory(), null)
         );
     }
 
     @Test
     void testThrowsOnNegativeNumberOfMines() {
         assertThrows(IllegalArgumentException.class,
-                () -> buildBoardCellGenerator(TEST_SIZE, -2, () -> baseCellFactory(), () -> minedCellFactory())
+                () -> buildBoardCellGenerator(TEST_SIZE, -2, pos -> baseCellFactory(), pos -> minedCellFactory())
         );
     }
 
@@ -117,7 +116,7 @@ public class BoardCellGeneratorTest {
         return true;
     }
 
-    BoardCellGenerator buildBoardCellGenerator(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
+    BoardCellGenerator buildBoardCellGenerator(Dimension size, int numberOfMines, Function<Position, Cell> baseCellFactory, Function<Position, Cell> minedCellFactory) {
         return BoardCellGenerator.create(size, numberOfMines, baseCellFactory, minedCellFactory);
     }
 }

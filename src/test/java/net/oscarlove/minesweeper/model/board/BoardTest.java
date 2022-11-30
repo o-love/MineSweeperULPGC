@@ -4,11 +4,11 @@ import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.Position;
 import net.oscarlove.minesweeper.model.cell.Cell;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardTest {
 
@@ -21,7 +21,7 @@ public class BoardTest {
     void singleCelledBoardReturns() {
         Board board = Board.create(List.of(List.of(Cell.create())), List.of());
 
-        assertEquals(Cell.create(), board.getCell(new Position(0,0)));
+        assertEquals(Cell.create(), board.getCell(new Position(0, 0)));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class BoardTest {
 
         Board board = Board.create(List.of(List.of(cell)), List.of());
 
-        assertEquals(cell, board.getCell(new Position(0,0)));
+        assertEquals(cell, board.getCell(new Position(0, 0)));
     }
 
     @Test
@@ -43,17 +43,17 @@ public class BoardTest {
 
     @Test
     void noMinedCellsReturn0Value() {
-        assertEquals(0, Board.create(create2x2(), List.of()).getCellValue(new Position(0,0)));
+        assertEquals(0, Board.create(create2x2(), List.of()).getCellValue(new Position(0, 0)));
     }
 
     @Test
     void oneAdjacentMinedCell() {
-        assertEquals(1, Board.create(create2x2(), List.of(new Position(1,1))).getCellValue(new Position(0,0)));
+        assertEquals(1, Board.create(create2x2(), List.of(new Position(1, 1))).getCellValue(new Position(0, 0)));
     }
 
     @Test
     void oneNonAdjacentMineReturns0() {
-        assertEquals(0, Board.create(createCellBoard(new Dimension(4, 4)), List.of(new Position(1,1))).getCellValue(new Position(3,2)));
+        assertEquals(0, Board.create(createCellBoard(new Dimension(4, 4)), List.of(new Position(1, 1))).getCellValue(new Position(3, 2)));
     }
 
     @Test
@@ -62,18 +62,17 @@ public class BoardTest {
                 Board.create(
                         createCellBoard(new Dimension(4, 4)),
                         List.of(
-                                new Position(1,1),
+                                new Position(1, 1),
                                 new Position(1, 0),
                                 new Position(0, 1)
                         )
-                ).getCellValue(new Position(0,0)));
+                ).getCellValue(new Position(0, 0)));
     }
 
     @Test
     void isMinedCellReturnsMinus1() {
-        assertEquals(-1, Board.create(create2x2(), List.of(new Position(0,0))).getCellValue(new Position(0,0)));
+        assertEquals(-1, Board.create(create2x2(), List.of(new Position(0, 0))).getCellValue(new Position(0, 0)));
     }
-
 
 
     private void assertAllSame(List<List<Cell>> cells, Board board) {
@@ -89,9 +88,8 @@ public class BoardTest {
     }
 
     private List<List<Cell>> createCellBoard(Dimension dimension) {
-        return BoardCellGenerator.create(dimension, 0, Cell::create, Cell::create).get();
+        return BoardCellGenerator.create(dimension, 0, pos -> Cell.create(), pos -> Cell.create()).get();
     }
-
 
 
 }

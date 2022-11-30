@@ -6,18 +6,17 @@ import net.oscarlove.minesweeper.model.cell.Cell;
 
 import java.util.*;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 class nonRandomBoardCellGenerator implements BoardCellGenerator {
 
 
     private final Dimension size;
     private final int numberOfMines;
-    private final Supplier<Cell> baseCellFactory;
-    private final Supplier<Cell> minedCellFactory;
+    private final Function<Position, Cell> baseCellFactory;
+    private final Function<Position, Cell> minedCellFactory;
     private Collection<Position> minedCellPosition = Collections.emptyList();
 
-    nonRandomBoardCellGenerator(Dimension size, int numberOfMines, Supplier<Cell> baseCellFactory, Supplier<Cell> minedCellFactory) {
+    nonRandomBoardCellGenerator(Dimension size, int numberOfMines, Function<Position, Cell> baseCellFactory, Function<Position, Cell> minedCellFactory) {
         this.size = size;
         this.numberOfMines = numberOfMines;
         this.baseCellFactory = baseCellFactory;
@@ -77,10 +76,10 @@ class nonRandomBoardCellGenerator implements BoardCellGenerator {
                 if (minesLeftToAdd > 0) {
                     minesLeftToAdd--;
                     minedCellPosition.add(position);
-                    return minedCellFactory.get();
+                    return minedCellFactory.apply(position);
                 }
 
-                return baseCellFactory.get();
+                return baseCellFactory.apply(position);
             }
         };
     }
