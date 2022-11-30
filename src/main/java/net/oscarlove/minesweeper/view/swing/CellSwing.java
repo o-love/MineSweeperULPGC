@@ -10,6 +10,8 @@ import javax.swing.*;
 
 public class CellSwing extends JPanel implements CellDisplay, CellDialog {
 
+    private static final String BOMB_EMOJI = "\uD83D\uDCA3";
+
     private final OpenObservable openObservable = OpenObservable.create();
     private JLabel label;
     private Cell.State state;
@@ -30,8 +32,19 @@ public class CellSwing extends JPanel implements CellDisplay, CellDialog {
         switch (state) {
             case UNTOUCHED -> label.setText("X");
             case FLAGGED -> label.setText("F");
-            case SELECTED -> label.setText(value == 0 ? " " : String.valueOf(value));
+            case SELECTED -> label.setText(getTextSelectedDisplay());
         }
+    }
+
+    private String getTextSelectedDisplay() {
+        if (value == 0) {
+            return " ";
+        }
+        if (value > 0) {
+            return String.valueOf(value);
+        }
+
+        return BOMB_EMOJI;
     }
 
     private void setupGUI() {
