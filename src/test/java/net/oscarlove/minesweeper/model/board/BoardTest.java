@@ -82,6 +82,25 @@ public class BoardTest {
                 .isEqualTo(1);
     }
 
+    @Test
+    public void testTwoAdjacentMines() {
+        Board board = buildBoard(new Dimension(3, 3), List.of(new Position(1, 0), new Position(1, 1)));
+
+        assertThat(board.getCell(0, 0).getValue())
+                .isEqualTo(2);
+        assertThat(board.getCell(0, 1).getValue())
+                .isEqualTo(2);
+        assertThat(board.getCell(0, 2).getValue())
+                .isEqualTo(1);
+
+        assertThat(board.getCell(1, 0).getValue())
+                .isEqualTo(-1);
+        assertThat(board.getCell(1, 1).getValue())
+                .isEqualTo(-1);
+        assertThat(board.getCell(1, 2).getValue())
+                .isEqualTo(1);
+    }
+
 
     private Board buildBoard(Dimension dimension, Collection<Position> minedCells) {
         return Board.create(dimension, minedCells);

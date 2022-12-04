@@ -4,30 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Basic Board Structure">
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Delete all after refactor. &#10;Some will be re added in future commits.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/controller/CellController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/controller/GameController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/BoardCellGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/nonRandomBoardCellGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/BaseCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/ObservableCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/BoardDisplay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDisplay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/BoardSwingDisplay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/CellSwing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GUISwing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GameOverPopup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardCellGeneratorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/cell/BaseCellTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/cell/GeneralCellTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/cell/ObservableCellTestCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/cell/ObservableCellTestObservable.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,14 +214,7 @@
       <workItem from="1669654933762" duration="6586000" />
       <workItem from="1669817704544" duration="4210000" />
       <workItem from="1669897351677" duration="4032000" />
-      <workItem from="1670160169483" duration="5056000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial Commit">
-      <created>1662986402370</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1662986402370</updated>
+      <workItem from="1670160169483" duration="5911000" />
     </task>
     <task id="LOCAL-00002" summary="Mess of an idea. &#10;To be deleted and redone.">
       <created>1664563357244</created>
@@ -572,7 +545,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670164132066</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Basic Cell value done.">
+      <created>1670166436179</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166436179</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Delete all after refactor. &#10;Some will be re added in future commits.">
+      <created>1670166875233</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166875235</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,8 +577,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start OpenObservableTest" />
-    <MESSAGE value="OpenObservableTest test setup" />
     <MESSAGE value="Finished OpenObservable" />
     <MESSAGE value="Make default Cell test abstract" />
     <MESSAGE value="Remove unnecessary Board interface" />
@@ -615,6 +600,8 @@
     <MESSAGE value="Block updates to Board after Game Over" />
     <MESSAGE value="Final Commit Before Refactor" />
     <MESSAGE value="Basic Board Structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic Board Structure" />
+    <MESSAGE value="Basic Cell value done." />
+    <MESSAGE value="Delete all after refactor. &#10;Some will be re added in future commits." />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete all after refactor. &#10;Some will be re added in future commits." />
   </component>
 </project>

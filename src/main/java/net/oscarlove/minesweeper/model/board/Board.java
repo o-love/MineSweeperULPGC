@@ -48,17 +48,27 @@ public interface Board {
                 for (int i = -1; i < 2; i++) {
                     for (int j = -1; j < 2; j++) {
                         if (i == 0 && j == 0) continue;
-                        if (isPositionInvalid(pos.row() + i, pos.column() + j)) continue;
 
-                        this.cellValues[pos.row() + i][pos.column() + j] += 1;
+                        int row = pos.row() + i;
+                        int column = pos.column() + j;
+
+                        if (isPositionOutOfBounds(row, column)) continue;
+                        if (isPositionAMine(row, column)) continue;
+
+                        this.cellValues[row][column] += 1;
                     }
                 }
             }
 
-            private boolean isPositionInvalid(int row, int column) {
+            private boolean isPositionOutOfBounds(int row, int column) {
                 return row < 0 || column < 0 ||
                         row >= dimension.rows() || column >= dimension.columns();
             }
+
+            private boolean isPositionAMine(int row, int column) {
+                return minedCells.contains(new Position(row, column));
+            }
+
 
             @Override
             public Cell getCell(int i, int j) {
