@@ -29,20 +29,35 @@ public interface Board {
 
     static Board create(Dimension dimension, Collection<Position> minedCells) {
         return new Board() {
-            final int[][] cells = new int[dimension.rows()][dimension.columns()];
+            final int[][] cellValues = new int[dimension.rows()][dimension.columns()];
+            final Cell.State[][] cellStates = new Cell.State[dimension.rows()][dimension.columns()];
 
             {
-                setMinedCells();
-                calculateCellValues();
+                initializeCellValues();
             }
 
-            private void setMinedCells() {
+            private void initializeCellValues() {
                 for (Position pos : minedCells) {
-                    this.cells[pos.row()][pos.column()] = -1;
+                    this.cellValues[pos.row()][pos.column()] = -1;
+
+                    incrementAdjacentCells(pos);
                 }
             }
 
-            private void calculateCellValues() {
+            private void incrementAdjacentCells(Position pos) {
+                for (int i = -1; i < 2; i++) {
+                    for (int j = -1; j < 2; j++) {
+                        if (i == 0 && j == 0) continue;
+                        if (isPositionInvalid(pos.row() + i, pos.column() + j)) continue;
+
+                        this.cellValues[pos.row() + i][pos.column() + j] += 1;
+                    }
+                }
+            }
+
+            private boolean isPositionInvalid(int row, int column) {
+                return row < 0 || column < 0 ||
+                        row >= dimension.rows() || column >= dimension.columns();
             }
 
             @Override
@@ -65,7 +80,7 @@ public interface Board {
 
                     @Override
                     public int getValue() {
-                        return -1;
+                        return cellValues[i][j];
                     }
 
                     @Override
