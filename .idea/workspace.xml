@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Basic Swing UI framework">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/controller/CellController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GUISwing.java" afterDir="false" />
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Block updates to Board after Game Over">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Dimension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/Dimension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/BaseCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/BaseCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/cli/BoardCLIDisplay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/BoardSwingDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/BoardSwingDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/CellSwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/CellSwing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GUISwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GUISwing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +59,8 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "actions.on.save"
+    "settings.editor.selected.configurable": "inlay.hints",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -167,9 +158,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in MineSweeper" />
         <item itemvalue="JUnit.BoardCellGeneratorTest" />
         <item itemvalue="JUnit.BoardCellGeneratorTest.testMinedCellsInCorrectPosition" />
-        <item itemvalue="JUnit.All in MineSweeper" />
         <item itemvalue="JUnit.ObservableCellTestCell" />
       </list>
     </recent_temporary>
@@ -206,7 +197,10 @@
       <workItem from="1669056199406" duration="3993000" />
       <workItem from="1669563780028" duration="4066000" />
       <workItem from="1669623020838" duration="2120000" />
-      <workItem from="1669654933762" duration="5654000" />
+      <workItem from="1669654933762" duration="6586000" />
+      <workItem from="1669817704544" duration="4210000" />
+      <workItem from="1669897351677" duration="4032000" />
+      <workItem from="1670160169483" duration="84000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1662986402370</created>
@@ -481,7 +475,56 @@
       <option name="project" value="LOCAL" />
       <updated>1669567815257</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Basic Game Working">
+      <created>1669723163651</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1669723163651</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Board is interface">
+      <created>1669820401828</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1669820401828</updated>
+    </task>
+    <task id="LOCAL-00042" summary="BoardCellGenerator changed to pass position to Cell Factory">
+      <created>1669820486612</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1669820486612</updated>
+    </task>
+    <task id="LOCAL-00043" summary="CellController split View creation event and Model updated event">
+      <created>1669820615594</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1669820615594</updated>
+    </task>
+    <task id="LOCAL-00044" summary="CellSwing textDisplay update">
+      <created>1669820666815</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1669820666815</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Main Structure update and GameOver UI setup">
+      <created>1669820775322</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1669820775322</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Block updates to Board after Game Over">
+      <created>1669821719627</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1669821719627</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,14 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cell State Null Check" />
-    <MESSAGE value="Basic BoardCellGeneratorTest created." />
-    <MESSAGE value="BoardCellGenerator without randomness" />
-    <MESSAGE value="BoardCellGeneratorTest without randomness" />
-    <MESSAGE value="Extracted from tests and cleaned up model package" />
-    <MESSAGE value="Refactor BoardCellGenerator" />
-    <MESSAGE value="Board finished testing." />
-    <MESSAGE value="Extract Board from test" />
     <MESSAGE value="Observable Cell Test setup" />
     <MESSAGE value="Move Observer package" />
     <MESSAGE value="Start OpenObservableTest" />
@@ -524,6 +559,14 @@
     <MESSAGE value="Update Board factory methods." />
     <MESSAGE value="Cell Factory refactor" />
     <MESSAGE value="Basic Swing UI framework" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic Swing UI framework" />
+    <MESSAGE value="Basic Game Working" />
+    <MESSAGE value="Board is interface" />
+    <MESSAGE value="BoardCellGenerator changed to pass position to Cell Factory" />
+    <MESSAGE value="CellController split View creation event and Model updated event" />
+    <MESSAGE value="CellSwing textDisplay update" />
+    <MESSAGE value="GameOver UI setup" />
+    <MESSAGE value="Main Structure update and GameOver UI setup" />
+    <MESSAGE value="Block updates to Board after Game Over" />
+    <option name="LAST_COMMIT_MESSAGE" value="Block updates to Board after Game Over" />
   </component>
 </project>
