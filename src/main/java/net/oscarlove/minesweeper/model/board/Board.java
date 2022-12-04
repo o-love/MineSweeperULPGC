@@ -2,80 +2,78 @@ package net.oscarlove.minesweeper.model.board;
 
 import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.Position;
-import net.oscarlove.minesweeper.model.cell.Cell;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
 
 public interface Board {
 
-    Cell getCell(Position position);
+    interface Cell {
+        enum State {
+            OPEN,
+            CLOSED,
+            FLAGGED
+        }
 
-    int getCellValue(Position position);
+        void setSelected();
 
-    Dimension produceDimension();
+        boolean toggleFlag();
 
+        State getState();
 
-    /**
-     * @throws NullPointerException     If any of the arguments are {@code null}.
-     * @throws IllegalArgumentException If {@code cells} is not rectangular.
-     */
-    static Board create(List<List<Cell>> cells, Collection<Position> minePositions) {
-        checkArguments(cells, minePositions);
+        int getValue();
 
+        Collection<Cell> getNeighbors();
+    }
+
+    Cell getCell(int i, int j);
+
+    static Board create(Dimension dimension, Collection<Position> minedCells) {
         return new Board() {
-            public Cell getCell(Position position) {
-                return cells.get(position.row()).get(position.column());
+            final int[][] cells = new int[dimension.rows()][dimension.columns()];
+
+            {
+                setMinedCells();
+                calculateCellValues();
             }
 
-            public int getCellValue(Position position) {
-                if (isAMine(position)) {
-                    return -1;
+            private void setMinedCells() {
+                for (Position pos : minedCells) {
+                    this.cells[pos.row()][pos.column()] = -1;
                 }
-
-                return (int) minePositions.stream()
-                        .filter(minePos -> isAdjacent(minePos, position))
-                        .count();
             }
 
-            public Dimension produceDimension() {
-                return new Dimension(cells.size(), cells.get(0).size());
+            private void calculateCellValues() {
             }
 
-            private boolean isAMine(Position position) {
-                return minePositions.contains(position);
-            }
+            @Override
+            public Cell getCell(int i, int j) {
+                return new Cell() {
+                    @Override
+                    public void setSelected() {
 
-            private boolean isAdjacent(Position pos1, Position pos2) {
-                return isAdjacent(pos1.row(), pos2.row()) && isAdjacent(pos1.column(), pos2.column());
-            }
+                    }
 
-            private boolean isAdjacent(int int1, int int2) {
-                return Math.abs(int1 - int2) <= 1;
+                    @Override
+                    public boolean toggleFlag() {
+                        return false;
+                    }
+
+                    @Override
+                    public State getState() {
+                        return null;
+                    }
+
+                    @Override
+                    public int getValue() {
+                        return -1;
+                    }
+
+                    @Override
+                    public Collection<Cell> getNeighbors() {
+                        return null;
+                    }
+                };
             }
         };
-    }
-
-    /**
-     * @throws NullPointerException If {@code boardCellGenerator} is {@code null}.
-     */
-    static Board create(BoardCellGenerator boardCellGenerator) {
-        Objects.requireNonNull(boardCellGenerator, "boardCellGenerator can not be null.");
-
-        return create(boardCellGenerator.get(), boardCellGenerator.getLastGenerationMinedCellPositions());
-    }
-
-    private static void checkArguments(List<List<Cell>> cells, Collection<Position> minePositions) {
-        Objects.requireNonNull(cells, "cells can not be null.");
-        Objects.requireNonNull(minePositions, "minePositions can not be null.");
-
-        if (!isAllRowsSameLength(cells)) {
-            throw new IllegalArgumentException("Cell Board is not Rectangular");
-        }
-    }
-
-    private static boolean isAllRowsSameLength(List<List<Cell>> cells) {
-        return cells.stream().allMatch(list -> cells.get(0).size() == list.size());
     }
 }
