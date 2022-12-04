@@ -34,6 +34,7 @@ public interface Board {
 
             {
                 initializeCellValues();
+                initializeCellStates();
             }
 
             private void initializeCellValues() {
@@ -69,6 +70,14 @@ public interface Board {
                 return minedCells.contains(new Position(row, column));
             }
 
+            private void initializeCellStates() {
+                for (int i = 0; i < dimension.rows(); i++) {
+                    for (int j = 0; j < dimension.columns(); j++) {
+                        this.cellStates[i][j] = Cell.State.OPEN;
+                    }
+                }
+            }
+
 
             @Override
             public Cell getCell(int i, int j) {
@@ -85,7 +94,7 @@ public interface Board {
 
                     @Override
                     public State getState() {
-                        return null;
+                        return cellStates[i][j];
                     }
 
                     @Override

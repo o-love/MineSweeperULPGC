@@ -101,6 +101,14 @@ public class BoardTest {
                 .isEqualTo(1);
     }
 
+    @Test
+    void testStateExistsAndIsOpen() {
+        assertThat(baseBoard.getCell(0, 0).getState())
+                .isNotNull();
+        assertThat(baseBoard.getCell(0, 0).getState())
+                .isEqualTo(Board.Cell.State.OPEN);
+    }
+
 
     private Board buildBoard(Dimension dimension, Collection<Position> minedCells) {
         return Board.create(dimension, minedCells);
