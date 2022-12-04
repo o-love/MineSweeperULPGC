@@ -4,9 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Block updates to Board after Game Over">
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Basic Board Structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GUISwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GUISwing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/controller/CellController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/controller/GameController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/BoardCellGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/nonRandomBoardCellGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/BaseCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/cell/ObservableCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/BoardDisplay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/CellDisplay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/BoardSwingDisplay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/CellSwing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GUISwing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/swing/GameOverPopup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardCellGeneratorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/cell/BaseCellTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/cell/GeneralCellTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/cell/ObservableCellTestCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/cell/ObservableCellTestObservable.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +49,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2fef08b5-a95b-4fd5-8df8-409097912be9" />
+        <option name="url" value="https://github.com/o-love/MineSweeperULPGC.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.1/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
@@ -87,7 +121,7 @@
       <recent name="net.oscarlove.minesweeper.model.interfaces" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.BoardTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.Main" />
       <module name="MineSweeper" />
@@ -140,16 +174,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ObservableCellTestCell" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MineSweeper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="net.oscarlove.minesweeper.model.cell.*" />
+          <option name="PATTERN" value="net.oscarlove.minesweeper.model.board.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.cell" />
-      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.cell.ObservableCellTestCell" />
+      <option name="PACKAGE_NAME" value="net.oscarlove.minesweeper.model.board" />
+      <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.model.board.BoardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BoardTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in MineSweeper" />
         <item itemvalue="JUnit.BoardCellGeneratorTest" />
         <item itemvalue="JUnit.BoardCellGeneratorTest.testMinedCellsInCorrectPosition" />
-        <item itemvalue="JUnit.ObservableCellTestCell" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +234,7 @@
       <workItem from="1669654933762" duration="6586000" />
       <workItem from="1669817704544" duration="4210000" />
       <workItem from="1669897351677" duration="4032000" />
-      <workItem from="1670160169483" duration="84000" />
+      <workItem from="1670160169483" duration="5056000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1662986402370</created>
@@ -524,7 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669821719627</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Final Commit Before Refactor">
+      <created>1670161452355</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1670161452355</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Basic Board Structure">
+      <created>1670164132066</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1670164132066</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,8 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Observable Cell Test setup" />
-    <MESSAGE value="Move Observer package" />
     <MESSAGE value="Start OpenObservableTest" />
     <MESSAGE value="OpenObservableTest test setup" />
     <MESSAGE value="Finished OpenObservable" />
@@ -567,6 +613,8 @@
     <MESSAGE value="GameOver UI setup" />
     <MESSAGE value="Main Structure update and GameOver UI setup" />
     <MESSAGE value="Block updates to Board after Game Over" />
-    <option name="LAST_COMMIT_MESSAGE" value="Block updates to Board after Game Over" />
+    <MESSAGE value="Final Commit Before Refactor" />
+    <MESSAGE value="Basic Board Structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Board Structure" />
   </component>
 </project>
