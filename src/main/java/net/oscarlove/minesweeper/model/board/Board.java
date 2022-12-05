@@ -86,7 +86,13 @@ public interface Board {
                 return new Cell() {
                     @Override
                     public void setSelected() {
+                        if (state() == State.CLOSED) return;
+
                         cellStates[row][col] = State.CLOSED;
+
+                        if (value() == 0) {
+                            neighbors().forEach(Cell::setSelected);
+                        }
                     }
 
                     @Override

@@ -166,6 +166,8 @@ public class BoardTest {
         baseBoard.getCell(1, 1).neighbors().forEach(Board.Cell::setSelected);
         test_all_around_cell_has_state(baseBoard, new Position(1, 1), Board.Cell.State.CLOSED);
 
+        setup();
+
         baseBoard.getCell(1, 4).neighbors().forEach(Board.Cell::toggleFlag);
         test_all_around_cell_has_state(baseBoard, new Position(1, 4), Board.Cell.State.FLAGGED);
     }
@@ -180,6 +182,38 @@ public class BoardTest {
         }
     }
 
+    @Test
+    public void test_cascade_on_select_zero_value_depth_one() {
+        Board board = buildBoard(new Dimension(3, 3), List.of(new Position(1, 2)));
+        board.getCell(1, 0).setSelected();
+
+        assertThat(board.getCell(0, 0).state()).isEqualTo(Board.Cell.State.CLOSED);
+        assertThat(board.getCell(1, 0).state()).isEqualTo(Board.Cell.State.CLOSED);
+        assertThat(board.getCell(2, 0).state()).isEqualTo(Board.Cell.State.CLOSED);
+        assertThat(board.getCell(0, 1).state()).isEqualTo(Board.Cell.State.CLOSED);
+        assertThat(board.getCell(1, 1).state()).isEqualTo(Board.Cell.State.CLOSED);
+        assertThat(board.getCell(2, 1).state()).isEqualTo(Board.Cell.State.CLOSED);
+    }
+
+    @Test
+    public void test_cascade_does_not_go_overbound() {
+        Board board = buildBoard(new Dimension(3, 3), List.of(new Position(1, 2)));
+        board.getCell(1, 0).setSelected();
+
+        assertThat(board.getCell(0, 2).state()).isEqualTo(Board.Cell.State.OPEN);
+        assertThat(board.getCell(1, 2).state()).isEqualTo(Board.Cell.State.OPEN);
+        assertThat(board.getCell(2, 2).state()).isEqualTo(Board.Cell.State.OPEN);
+    }
+
+    @Test
+    public void test_cascade_on_select_recursive() {
+        Board board = buildBoard(new Dimension(5, 5), List.of());
+        board.getCell(0, 0).setSelected();
+
+        for (Position pos : new Dimension(5, 5).positionsUnderneath()) {
+            assertThat(board.getCell(pos.row(), pos.column()).state()).isEqualTo(Board.Cell.State.CLOSED);
+        }
+    }
 
     private Board buildBoard(Dimension dimension, Collection<Position> minedCells) {
         return Board.create(dimension, minedCells);
