@@ -7,6 +7,7 @@ import net.oscarlove.minesweeper.model.Position;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Consumer;
 
 public interface Board {
 
@@ -27,6 +28,8 @@ public interface Board {
 
         Collection<Cell> neighbors();
     }
+
+    Cell getCell(Position position);
 
     Cell getCell(int i, int j);
 
@@ -53,24 +56,35 @@ public interface Board {
             }
 
             private void incrementAdjacentCells(Position pos) {
+                for_adjacent_position(pos, position -> {
+                    if (isPositionOutOfBounds(position)) return;
+                    if (isPositionAMine(position)) return;
+
+                    this.cellValues[position.row()][position.column()] += 1;
+                });
+            }
+
+            private void for_adjacent_position(Position pos, Consumer<Position> positionConsumer) {
                 for (int i = -1; i < 2; i++) {
                     for (int j = -1; j < 2; j++) {
                         if (i == 0 && j == 0) continue;
 
-                        int row = pos.row() + i;
-                        int column = pos.column() + j;
-
-                        if (isPositionOutOfBounds(row, column)) continue;
-                        if (isPositionAMine(row, column)) continue;
-
-                        this.cellValues[row][column] += 1;
+                        positionConsumer.accept(new Position(pos.row() + i, pos.column() + j));
                     }
                 }
+            }
+
+            private boolean isPositionOutOfBounds(Position position) {
+                return isPositionOutOfBounds(position.row(), position.column());
             }
 
             private boolean isPositionOutOfBounds(int row, int column) {
                 return row < 0 || column < 0 ||
                         row >= dimension.rows() || column >= dimension.columns();
+            }
+
+            private boolean isPositionAMine(Position position) {
+                return isPositionAMine(position.row(), position.column());
             }
 
             private boolean isPositionAMine(int row, int column) {
@@ -87,6 +101,11 @@ public interface Board {
 
             public void setCellStateListener(PositionEvent cellStateChange) {
                 this.cellStateChangeEvent = cellStateChange;
+            }
+
+            @Override
+            public Cell getCell(Position position) {
+                return getCell(position.row(), position.column());
             }
 
             @Override
@@ -135,18 +154,11 @@ public interface Board {
                     }
 
                     private void populateWithNeighbors(Collection<Cell> cells) {
-                        for (int i = -1; i < 2; i++) {
-                            for (int j = -1; j < 2; j++) {
-                                if (i == 0 && j == 0) continue;
+                        for_adjacent_position(new Position(row, col), position -> {
+                            if (isPositionOutOfBounds(position)) return;
 
-                                int _row = row + i;
-                                int _column = col + j;
-
-                                if (isPositionOutOfBounds(_row, _column)) continue;
-
-                                cells.add(getCell(_row, _column));
-                            }
-                        }
+                            cells.add(getCell(position));
+                        });
                     }
                 };
             }
