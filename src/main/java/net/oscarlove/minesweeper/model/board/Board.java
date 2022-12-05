@@ -1,5 +1,6 @@
 package net.oscarlove.minesweeper.model.board;
 
+import net.oscarlove.minesweeper.base.events.PositionEvent;
 import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.Position;
 
@@ -29,10 +30,14 @@ public interface Board {
 
     Cell getCell(int i, int j);
 
+    void setCellStateListener(PositionEvent cellStateChangeEvent);
+
     static Board create(Dimension dimension, Collection<Position> minedCells) {
         return new Board() {
             final int[][] cellValues = new int[dimension.rows()][dimension.columns()];
             final Cell.State[][] cellStates = new Cell.State[dimension.rows()][dimension.columns()];
+
+            private PositionEvent cellStateChangeEvent = PositionEvent.NULL;
 
             {
                 initializeCellValues();
@@ -80,6 +85,9 @@ public interface Board {
                 }
             }
 
+            public void setCellStateListener(PositionEvent cellStateChange) {
+                this.cellStateChangeEvent = cellStateChange;
+            }
 
             @Override
             public Cell getCell(int row, int col) {
@@ -88,7 +96,7 @@ public interface Board {
                     public void setSelected() {
                         if (state() == State.CLOSED) return;
 
-                        cellStates[row][col] = State.CLOSED;
+                        setState(State.CLOSED);
 
                         if (value() == 0) {
                             neighbors().forEach(Cell::setSelected);
@@ -99,7 +107,12 @@ public interface Board {
                     public void toggleFlag() {
                         if (cellStates[row][col] == State.CLOSED) return;
 
-                        cellStates[row][col] = cellStates[row][col] == State.OPEN ? State.FLAGGED : State.OPEN;
+                        setState(cellStates[row][col] == State.OPEN ? State.FLAGGED : State.OPEN);
+                    }
+
+                    private void setState(State state) {
+                        cellStates[row][col] = state;
+                        cellStateChangeEvent.handle(row, col);
                     }
 
                     @Override
