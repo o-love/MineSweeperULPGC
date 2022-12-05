@@ -4,6 +4,8 @@ import net.oscarlove.minesweeper.model.Dimension;
 import net.oscarlove.minesweeper.model.Position;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 public interface Board {
 
@@ -18,11 +20,11 @@ public interface Board {
 
         void toggleFlag();
 
-        State getState();
+        State state();
 
-        int getValue();
+        int value();
 
-        Collection<Cell> getNeighbors();
+        Collection<Cell> neighbors();
     }
 
     Cell getCell(int i, int j);
@@ -80,31 +82,52 @@ public interface Board {
 
 
             @Override
-            public Cell getCell(int i, int j) {
+            public Cell getCell(int row, int col) {
                 return new Cell() {
                     @Override
                     public void setSelected() {
-                        cellStates[i][j] = State.CLOSED;
+                        cellStates[row][col] = State.CLOSED;
                     }
 
                     @Override
                     public void toggleFlag() {
-                        cellStates[i][j] = cellStates[i][j] == State.OPEN ? State.FLAGGED : State.OPEN;
+                        if (cellStates[row][col] == State.CLOSED) return;
+
+                        cellStates[row][col] = cellStates[row][col] == State.OPEN ? State.FLAGGED : State.OPEN;
                     }
 
                     @Override
-                    public State getState() {
-                        return cellStates[i][j];
+                    public State state() {
+                        return cellStates[row][col];
                     }
 
                     @Override
-                    public int getValue() {
-                        return cellValues[i][j];
+                    public int value() {
+                        return cellValues[row][col];
                     }
 
                     @Override
-                    public Collection<Cell> getNeighbors() {
-                        return null;
+                    public Collection<Cell> neighbors() {
+                        Set<Cell> toReturn = new HashSet<>();
+
+                        populateWithNeighbors(toReturn);
+
+                        return toReturn;
+                    }
+
+                    private void populateWithNeighbors(Collection<Cell> cells) {
+                        for (int i = -1; i < 2; i++) {
+                            for (int j = -1; j < 2; j++) {
+                                if (i == 0 && j == 0) continue;
+
+                                int _row = row + i;
+                                int _column = col + j;
+
+                                if (isPositionOutOfBounds(_row, _column)) continue;
+
+                                cells.add(getCell(_row, _column));
+                            }
+                        }
                     }
                 };
             }
