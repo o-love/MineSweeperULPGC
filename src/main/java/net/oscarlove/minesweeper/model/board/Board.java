@@ -16,7 +16,7 @@ public interface Board {
 
         void setSelected();
 
-        boolean toggleFlag();
+        void toggleFlag();
 
         State getState();
 
@@ -84,12 +84,12 @@ public interface Board {
                 return new Cell() {
                     @Override
                     public void setSelected() {
-
+                        cellStates[i][j] = State.CLOSED;
                     }
 
                     @Override
-                    public boolean toggleFlag() {
-                        return false;
+                    public void toggleFlag() {
+                        cellStates[i][j] = cellStates[i][j] == State.OPEN ? State.FLAGGED : State.OPEN;
                     }
 
                     @Override

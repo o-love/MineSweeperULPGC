@@ -102,9 +102,27 @@ public class BoardTest {
     }
 
     @Test
-    void testStateExistsAndIsOpen() {
+    public void testBaseStateExistsAndIsOpen() {
         assertThat(baseBoard.getCell(0, 0).getState())
                 .isNotNull();
+        assertThat(baseBoard.getCell(0, 0).getState())
+                .isEqualTo(Board.Cell.State.OPEN);
+    }
+
+    @Test
+    public void testStateIsModifiedAfterSelect() {
+        baseBoard.getCell(0, 0).setSelected();
+        assertThat(baseBoard.getCell(0, 0).getState())
+                .isEqualTo(Board.Cell.State.CLOSED);
+    }
+
+    @Test
+    public void testFlagToggle() {
+        baseBoard.getCell(0, 0).toggleFlag();
+        assertThat(baseBoard.getCell(0, 0).getState())
+                .isEqualTo(Board.Cell.State.FLAGGED);
+
+        baseBoard.getCell(0, 0).toggleFlag();
         assertThat(baseBoard.getCell(0, 0).getState())
                 .isEqualTo(Board.Cell.State.OPEN);
     }

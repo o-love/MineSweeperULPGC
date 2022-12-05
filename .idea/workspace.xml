@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Delete all after refactor. &#10;Some will be re added in future commits.">
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Board.Cell.getState initialization value">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardTest.java" afterDir="false" />
@@ -30,11 +30,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -67,13 +67,15 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "inlay.hints",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -214,21 +216,9 @@
       <workItem from="1669654933762" duration="6586000" />
       <workItem from="1669817704544" duration="4210000" />
       <workItem from="1669897351677" duration="4032000" />
-      <workItem from="1670160169483" duration="5911000" />
-    </task>
-    <task id="LOCAL-00002" summary="Mess of an idea. &#10;To be deleted and redone.">
-      <created>1664563357244</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1664563357244</updated>
-    </task>
-    <task id="LOCAL-00003" summary="New structure">
-      <created>1664566279189</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1664566279189</updated>
+      <workItem from="1670160169483" duration="8467000" />
+      <workItem from="1670231555058" duration="127000" />
+      <workItem from="1670231700349" duration="507000" />
     </task>
     <task id="LOCAL-00004" summary="Basic Tests for MineSweeperBoardInterface">
       <created>1665332711184</created>
@@ -559,7 +549,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670166875235</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Done with Board.Cell value">
+      <created>1670167345727</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1670167345727</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Board.Cell.getState initialization value">
+      <created>1670168881285</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1670168881285</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,9 +581,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished OpenObservable" />
-    <MESSAGE value="Make default Cell test abstract" />
-    <MESSAGE value="Remove unnecessary Board interface" />
     <MESSAGE value="Reorganize tests" />
     <MESSAGE value="Created ObservableCell after TDD" />
     <MESSAGE value="Abstract OpenObservableTest" />
@@ -602,6 +603,9 @@
     <MESSAGE value="Basic Board Structure" />
     <MESSAGE value="Basic Cell value done." />
     <MESSAGE value="Delete all after refactor. &#10;Some will be re added in future commits." />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete all after refactor. &#10;Some will be re added in future commits." />
+    <MESSAGE value="Done with Board.Cell value" />
+    <MESSAGE value="Done with Board.Cell.getState initialization value" />
+    <MESSAGE value="Board.Cell.getState initialization value" />
+    <option name="LAST_COMMIT_MESSAGE" value="Board.Cell.getState initialization value" />
   </component>
 </project>
