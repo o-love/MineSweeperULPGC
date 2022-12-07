@@ -215,6 +215,18 @@ public class BoardTest {
         }
     }
 
+    @Test
+    public void test_board_dimension_exists() {
+        assertThat(baseBoard.dimension()).isNotNull();
+    }
+
+    @Test
+    public void test_board_dimension_correct() {
+        Board board = buildBoard(new Dimension(8, 20), List.of());
+
+        assertThat(board.dimension()).isEqualTo(new Dimension(8, 20));
+    }
+
     private Board buildBoard(Dimension dimension, Collection<Position> minedCells) {
         return Board.create(dimension, minedCells);
     }

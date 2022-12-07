@@ -35,6 +35,8 @@ public interface Board {
 
     void setCellStateListener(PositionEvent cellStateChangeEvent);
 
+    Dimension dimension();
+
     static Board create(Dimension dimension, Collection<Position> minedCells) {
         return new Board() {
             final int[][] cellValues = new int[dimension.rows()][dimension.columns()];
@@ -99,6 +101,7 @@ public interface Board {
                 }
             }
 
+            @Override
             public void setCellStateListener(PositionEvent cellStateChange) {
                 this.cellStateChangeEvent = cellStateChange;
             }
@@ -106,6 +109,11 @@ public interface Board {
             @Override
             public Cell getCell(Position position) {
                 return getCell(position.row(), position.column());
+            }
+
+            @Override
+            public Dimension dimension() {
+                return dimension;
             }
 
             @Override
