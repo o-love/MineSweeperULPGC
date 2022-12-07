@@ -58,7 +58,7 @@ public interface Board {
             }
 
             private void incrementAdjacentCells(Position pos) {
-                for_adjacent_position(pos, position -> {
+                forAdjacentPosition(pos, position -> {
                     if (isPositionOutOfBounds(position)) return;
                     if (isPositionAMine(position)) return;
 
@@ -66,7 +66,7 @@ public interface Board {
                 });
             }
 
-            private void for_adjacent_position(Position pos, Consumer<Position> positionConsumer) {
+            private void forAdjacentPosition(Position pos, Consumer<Position> positionConsumer) {
                 for (int i = -1; i < 2; i++) {
                     for (int j = -1; j < 2; j++) {
                         if (i == 0 && j == 0) continue;
@@ -94,11 +94,9 @@ public interface Board {
             }
 
             private void initializeCellStates() {
-                for (int i = 0; i < dimension.rows(); i++) {
-                    for (int j = 0; j < dimension.columns(); j++) {
-                        this.cellStates[i][j] = Cell.State.OPEN;
-                    }
-                }
+                dimension.positionsUnderneath().forEach(position ->
+                        this.cellStates[position.row()][position.column()] = Cell.State.OPEN
+                );
             }
 
             @Override
@@ -162,7 +160,7 @@ public interface Board {
                     }
 
                     private void populateWithNeighbors(Collection<Cell> cells) {
-                        for_adjacent_position(new Position(row, col), position -> {
+                        forAdjacentPosition(new Position(row, col), position -> {
                             if (isPositionOutOfBounds(position)) return;
 
                             cells.add(getCell(position));
