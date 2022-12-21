@@ -1,4 +1,4 @@
-package net.oscarlove.minesweeper.model;
+package net.oscarlove.minesweeper.base.datatypes;
 
 import java.util.Iterator;
 
