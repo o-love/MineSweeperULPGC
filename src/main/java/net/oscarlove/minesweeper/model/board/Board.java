@@ -1,12 +1,10 @@
 package net.oscarlove.minesweeper.model.board;
 
+import net.oscarlove.minesweeper.base.datatypes.Dimension;
+import net.oscarlove.minesweeper.base.datatypes.Position;
 import net.oscarlove.minesweeper.base.events.PositionEvent;
-import net.oscarlove.minesweeper.model.Dimension;
-import net.oscarlove.minesweeper.model.Position;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 
 public interface Board {

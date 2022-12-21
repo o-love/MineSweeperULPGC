@@ -1,13 +1,11 @@
 package net.oscarlove.minesweeper.model.board;
 
-import net.oscarlove.minesweeper.model.Dimension;
-import net.oscarlove.minesweeper.model.Position;
+import net.oscarlove.minesweeper.base.datatypes.Dimension;
+import net.oscarlove.minesweeper.base.datatypes.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
