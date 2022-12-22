@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Board.Cell.getState initialization value">
+    <list default="true" id="5b18d9d7-7c8e-4882-a4f2-03ab964784e1" name="Changes" comment="Build Board from main with RandomPositionGenerator">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/presenter/BoardPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/BoardView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/Swing/BoardSwing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/view/Swing/GUISwing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/oscarlove/minesweeper/model/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/oscarlove/minesweeper/model/board/BoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +20,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -46,6 +49,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.1/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="37jl9f6e" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -58,27 +64,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -97,13 +103,14 @@
       <recent name="net.oscarlove.minesweeper.model" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="net.oscarlove.minesweeper.base.datatypes" />
       <recent name="net.oscarlove.minesweeper.model.board" />
       <recent name="net.oscarlove.minesweeper.model.util" />
       <recent name="net.oscarlove.minesweeper.model.cell" />
       <recent name="net.oscarlove.minesweeper.model.interfaces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BoardTest">
+  <component name="RunManager" selected="JUnit.All in MineSweeper">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.oscarlove.minesweeper.Main" />
       <module name="MineSweeper" />
@@ -119,7 +126,15 @@
     </configuration>
     <configuration name="All in MineSweeper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MineSweeper" />
+      <extension name="coverage" sample_coverage="false">
+        <pattern>
+          <option name="PATTERN" value="net.oscarlove.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,11 +186,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.All in MineSweeper" />
+      <item itemvalue="JUnit.BoardCellGeneratorTest" />
+      <item itemvalue="JUnit.BoardCellGeneratorTest.testMinedCellsInCorrectPosition" />
+      <item itemvalue="JUnit.BoardTest" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in MineSweeper" />
         <item itemvalue="JUnit.BoardTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.All in MineSweeper" />
         <item itemvalue="JUnit.BoardCellGeneratorTest" />
         <item itemvalue="JUnit.BoardCellGeneratorTest.testMinedCellsInCorrectPosition" />
       </list>
@@ -218,91 +240,16 @@
       <workItem from="1669897351677" duration="4032000" />
       <workItem from="1670160169483" duration="8467000" />
       <workItem from="1670231555058" duration="127000" />
-      <workItem from="1670231700349" duration="507000" />
-    </task>
-    <task id="LOCAL-00004" summary="Basic Tests for MineSweeperBoardInterface">
-      <created>1665332711184</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1665332711184</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Created Tests for all current model classes which implement own behaviour.">
-      <created>1665509882612</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1665509882612</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Cell implementation with position inside Cell">
-      <created>1665509990391</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1665509990391</updated>
-    </task>
-    <task id="LOCAL-00007" summary="New Cell test using enums and without position.">
-      <created>1665510396690</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1665510396690</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Finished new Cell structure">
-      <created>1665511088597</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1665511088597</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added business logic to Cell State">
-      <created>1665770093626</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1665770093626</updated>
-    </task>
-    <task id="LOCAL-00010" summary="MineSweeperBoard Test board made.">
-      <created>1665771023278</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1665771023278</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Final commit before restarting">
-      <created>1667461780869</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1667461780869</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Reset. Starting out from scratch">
-      <created>1667461831703</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1667461831703</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Starting TDD for cell">
-      <created>1667567651413</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1667567651413</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Finished Cell TDD">
-      <created>1667576932417</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1667576932417</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Extracted Cell from CellTest">
-      <created>1667592256211</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1667592256211</updated>
+      <workItem from="1670231700349" duration="5259000" />
+      <workItem from="1670259062851" duration="2513000" />
+      <workItem from="1670345216425" duration="2068000" />
+      <workItem from="1670433449361" duration="1430000" />
+      <workItem from="1670773127693" duration="83000" />
+      <workItem from="1670774445972" duration="947000" />
+      <workItem from="1671035063149" duration="3278000" />
+      <workItem from="1671614544985" duration="1395000" />
+      <workItem from="1671625259858" duration="3443000" />
+      <workItem from="1671658863119" duration="718000" />
     </task>
     <task id="LOCAL-00016" summary="Board TDD setup">
       <created>1667636486075</created>
@@ -563,7 +510,91 @@
       <option name="project" value="LOCAL" />
       <updated>1670168881285</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Board.Cell state basic functionality.">
+      <created>1670232267946</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1670232267948</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Board without cascade on select done.&#10;Finished toggle and added neighbors.&#10;Refactor of Board test method names.">
+      <created>1670254205581</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1670254205581</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Board cascade added">
+      <created>1670255296193</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1670255296193</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Create Events">
+      <created>1670259540898</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1670259540899</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Add PositionEvent to Board">
+      <created>1670259619095</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1670259619095</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Refactor iteration over adjacent cells.">
+      <created>1670260352858</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1670260352858</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Added Board.getDimension with tests">
+      <created>1670434198843</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1670434198843</updated>
+    </task>
+    <task id="LOCAL-00060" summary="CellSwing without images done.">
+      <created>1670434450775</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1670434450775</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Refactor Board">
+      <created>1670434856788</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1670434856788</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Refactor Dimension and Position">
+      <created>1671628739407</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1671628739408</updated>
+    </task>
+    <task id="LOCAL-00063" summary="RandomPositionGenerator to generate random positions inside a specified Dimension">
+      <created>1671628824342</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1671628824343</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Build Board from main with RandomPositionGenerator">
+      <created>1671629104082</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1671629104082</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,18 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reorganize tests" />
-    <MESSAGE value="Created ObservableCell after TDD" />
-    <MESSAGE value="Abstract OpenObservableTest" />
-    <MESSAGE value="Finished ObservableCell" />
-    <MESSAGE value="Make BaseCell package private" />
-    <MESSAGE value="Fix visibility of Board Factory" />
-    <MESSAGE value="Have Board generator provide list of mined Cell positions." />
-    <MESSAGE value="Update Board factory methods." />
-    <MESSAGE value="Cell Factory refactor" />
-    <MESSAGE value="Basic Swing UI framework" />
-    <MESSAGE value="Basic Game Working" />
-    <MESSAGE value="Board is interface" />
     <MESSAGE value="BoardCellGenerator changed to pass position to Cell Factory" />
     <MESSAGE value="CellController split View creation event and Model updated event" />
     <MESSAGE value="CellSwing textDisplay update" />
@@ -606,6 +625,23 @@
     <MESSAGE value="Done with Board.Cell value" />
     <MESSAGE value="Done with Board.Cell.getState initialization value" />
     <MESSAGE value="Board.Cell.getState initialization value" />
-    <option name="LAST_COMMIT_MESSAGE" value="Board.Cell.getState initialization value" />
+    <MESSAGE value="Board.Cell state basic functionality." />
+    <MESSAGE value="Board without cascade on select done.&#10;Finished toggle and added neighbors.&#10;Refactor of Board test method names." />
+    <MESSAGE value="Board cascade added" />
+    <MESSAGE value="Create Events" />
+    <MESSAGE value="Add PositionEvent to Board" />
+    <MESSAGE value="Refactor iteration over adjacent cells." />
+    <MESSAGE value="Added Board.getDimension with tests" />
+    <MESSAGE value="CellSwing without images done." />
+    <MESSAGE value="Refactor Board" />
+    <MESSAGE value="Refactor Dimension and Position" />
+    <MESSAGE value="RandomPositionGenerator to generate random positions inside a specified Dimension" />
+    <MESSAGE value="Build Board from main with RandomPositionGenerator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Build Board from main with RandomPositionGenerator" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MineSweeper$All_in_MineSweeper.ic" NAME="All in MineSweeper Coverage Results" MODIFIED="1670774587680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>net.oscarlove.*</FILTER>
+    </SUITE>
   </component>
 </project>
